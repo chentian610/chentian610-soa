@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="newsMap">
+	<!--插入表kt_bus_news -->
+	<insert id="insertNews" parameterType="NewsVO">
+	insert into kt_bus_news
+		(
+		school_id,
+		news_code,
+		title,
+		content,
+		content_text,
+		main_pic_url,
+		is_main,
+		template_type,
+		dept_name,
+		deploy_date,
+		create_date,
+		create_by,
+		version
+		) VALUES (
+		#{school_id},
+		#{news_code},
+		#{title},
+		#{content},
+		#{content_text},
+		#{main_pic_url},
+		#{is_main},
+		#{template_type},
+		#{dept_name},
+		#{deploy_date},
+		#{create_date},
+		#{create_by},
+		0
+		)
+	</insert>
+	<!--更新表kt_bus_news -->
+	<update id="updateNewsById" parameterType="NewsVO">update kt_bus_news
+		set 
+		<if test="news_code !=null and news_code != '' ">
+			news_code = #{news_code},
+		</if>
+		<if test="title !=null and title != '' ">
+			title = #{title},
+		</if>
+		<if test="content !=null and content != '' ">
+			content = #{content},
+		</if>
+		<if test="content_text !=null and content_text != '' ">
+			content_text = #{content_text},
+		</if>
+		<if test="main_pic_url !=null and main_pic_url != '' ">
+			main_pic_url = #{main_pic_url},
+		</if>
+		<if test="is_main != null ">
+			is_main = #{is_main},
+		</if>
+		<if test="dept_name !=null and dept_name != '' ">
+			dept_name = #{dept_name},
+		</if>
+		<if test="deploy_date !=null and deploy_date != '' ">
+			deploy_date = #{deploy_date},
+		</if>
+		update_by = #{update_by},
+		update_date = #{update_date},
+		version = version + 1
+		where news_id=#{news_id}
+	</update>
+	<!--查询表kt_bus_news -->
+	<select id="getNewsList" parameterType="Map" resultType="NewsVO">
+	select
+		news.news_id as news_id,
+		news.school_id as school_id,
+		news.news_code as news_code,
+		dict.code_name as code_name,
+		news.title as title,
+		<if test="is_text == 0">
+		news.content as content,
+		news.content_text as content_text,
+		</if>
+		<if test="is_text == -1">
+		news.content as content,
+		</if>
+		<if test="is_text == 1">
+		news.content_text as content_text,
+		</if>
+		news.template_type as template_type,
+		news.main_pic_url as main_pic_url,
+		news.is_main as is_main,
+		news.dept_name as dept_name,
+		news.deploy_date as deploy_date,
+		news.create_date as create_date,
+		news.create_by as create_by,
+		news.update_by as update_by,
+		news.update_date as update_date,
+		news.version as version
+	from kt_bus_news news, kt_sys_news_code dict 
+	where news.school_id = #{school_id} and dict.news_group = #{dict_group}
+	   AND dict.news_code = news.news_code AND dict.school_id = news.school_id
+		<if test="news_code != null and news_code != '' ">    
+            and news.news_code = #{news_code}  
+        </if>
+   		<if test="is_main == 1">    
+            and news.is_main = 1 
+        </if>
+        <if test="deploy_date != null and deploy_date != '' ">    
+            and news.deploy_date like CONCAT(#{deploy_date},'%')  
+        </if>
+		<if test="search != null and search != '' ">    
+            and (news.content  like CONCAT('%',#{search},'%')
+              	 or news.title like CONCAT('%',#{search},'%')
+                 or news.dept_name like CONCAT('%',#{search},'%')) 
+        </if>
+		<if test="app_sql != null and app_sql != '' ">    
+            and news.news_id  ${app_sql}  
+        </if>
+        order by news_id desc  
+	</select>
+
+	<!--查询表kt_bus_news -->
+	<select id="getNewsOldList" parameterType="Map" resultType="NewsVO">
+		select
+		news.news_id as news_id,
+		news.school_id as school_id,
+		news.news_code as news_code,
+		dict.code_name as code_name,
+		news.title as title,
+		<if test="is_text == 0">
+			news.content as content,
+			news.content_text as content_text,
+		</if>
+		<if test="is_text == -1">
+			news.content as content,
+		</if>
+		<if test="is_text == 1">
+			news.content_text as content_text,
+		</if>
+		news.template_type as template_type,
+		news.main_pic_url as main_pic_url,
+		news.is_main as is_main,
+		news.dept_name as dept_name,
+		news.deploy_date as deploy_date,
+		news.create_date as create_date,
+		news.create_by as create_by,
+		news.update_by as update_by,
+		news.update_date as update_date,
+		news.version as version
+		from kt_bus_news news, kt_sys_news_code dict
+		where news.school_id = #{school_id} and dict.news_group = #{dict_group}
+		<if test="news_code != null and news_code != '' ">
+			and news.news_code = #{news_code}
+		</if>
+		<if test="is_main == 1">
+			and news.is_main = 1
+		</if>
+		<if test="deploy_date != null and deploy_date != '' ">
+			and news.deploy_date like CONCAT(#{deploy_date},'%')
+		</if>
+		<if test="search != null and search != '' ">
+			and (news.content  like CONCAT('%',#{search},'%')
+			or news.title like CONCAT('%',#{search},'%')
+			or news.dept_name like CONCAT('%',#{search},'%'))
+		</if>
+		<if test="app_sql != null and app_sql != '' ">
+			and news.news_id  ${app_sql}
+		</if>
+		order by news_id desc
+	</select>
+	<!--查询表kt_bus_news -->
+	<select id="getNewsByCode" parameterType="NewsCodeVO" resultType="NewsVO">
+		select * from kt_bus_news where school_id = #{school_id} and news_code = #{news_code}
+	</select>
+	<!--查询表kt_bus_news -->
+	<select id="getNewsByID" parameterType="Integer" resultType="NewsVO">
+	select
+		news_id as news_id,
+		school_id as school_id,
+		news_code as news_code,
+		title as title,
+		content as content,
+		content_text as content_text,
+		main_pic_url as main_pic_url,
+		is_main as is_main,
+		template_type as template_type,
+		dept_name as dept_name,
+		deploy_date as deploy_date,
+		create_date as create_date,
+		create_by as create_by,
+		update_by as update_by,
+		update_date as update_date,
+		version as version
+		from kt_bus_news
+		where news_id = #{news_id}
+	</select>
+	<!--删除表kt_bus_news -->
+	<delete id="deleteNewsById" parameterType="Integer">
+	    delete from kt_bus_news
+		where news_id = #{news_id}
+	</delete>
+	<!--查询表kt_bus_news -->
+	<select id="getNewsListByGroup" parameterType="Map" resultType="NewsVO">
+	select
+		news.news_id as news_id,
+		news.school_id as school_id,
+		news.news_code as news_code,
+		news.title as title,
+		news.content as content,
+		news.content_text as content_text,
+		news.main_pic_url as main_pic_url,
+		news.is_main as is_main,
+		news.template_type as template_type,
+		news.dept_name as dept_name,
+		news.deploy_date as deploy_date,
+		news.create_date as create_date,
+		news.create_by as create_by,
+		news.update_by as update_by,
+		news.update_date as update_date,
+		news.version as version
+	from kt_bus_news news,kt_sys_news_code dict
+	where news.school_id = #{school_id} and dict.news_group = #{dict_group}
+		AND dict.news_code = news.news_code AND dict.school_id = news.school_id
+	<if test="app_sql != null and app_sql != '' ">    
+            and news.news_id  ${app_sql}  
+    </if>
+    order by deploy_date desc 
+	</select>
+</mapper>
+

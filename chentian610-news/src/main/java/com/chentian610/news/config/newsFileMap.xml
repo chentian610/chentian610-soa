@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="newsFileMap">
+	<!--插入表kt_bus_news_file -->
+	<insert id="insertNewsFileBatch" parameterType="List">
+	INSERT INTO kt_bus_news_file(
+		school_id,
+		news_id,
+		file_url,
+		create_by,
+		create_date,
+		version
+	) VALUES
+		<foreach collection="list" item="item" index="index"  separator=",">
+	(
+		#{item.school_id},
+		#{item.news_id},
+		#{item.file_url},
+		#{item.create_by},
+		#{item.create_date},
+		0
+	)
+		</foreach>
+	</insert>
+	<!--更新表kt_bus_news_file -->
+	<update id="updateNewsFileById" parameterType="NewsFileVO">update kt_bus_news_file
+		set
+		file_url = #{file_url},
+		update_by = #{update_by},
+		update_date = #{update_date},
+		version = version + 1
+		where news_id=#{news_id}
+	</update>
+	<!--查询表kt_bus_news_file -->
+	<select id="getNewsFileList" parameterType="Integer" resultType="NewsFileVO">
+	SELECT
+		file_id AS file_id,
+		school_id AS school_id,
+		news_id AS news_id,
+		file_url AS file_url,
+		create_by AS create_by,
+		create_date AS create_date,
+		update_by AS update_by,
+		update_date AS update_date,
+		version AS version
+	FROM kt_bus_news_file WHERE  news_id = #{news_id}
+        order by news_id desc  
+	</select>
+	<!--查询表kt_bus_news_file -->
+	<select id="getNewsFileByID" parameterType="Integer" resultType="NewsFileVO">
+	SELECT
+		file_id AS file_id,
+		school_id AS school_id,
+		news_id AS news_id,
+		file_url AS file_url,
+		create_by AS create_by,
+		create_date AS create_date,
+		update_by AS update_by,
+		update_date AS update_date,
+		version AS version
+	FROM kt_bus_news_file
+	where news_id = #{news_id}
+	</select>
+	<!--删除表kt_bus_news_file -->
+	<delete id="deleteNewsFileById" parameterType="Integer">
+	    delete from kt_bus_news_file
+		where news_id = #{news_id}
+	</delete>
+</mapper>
+

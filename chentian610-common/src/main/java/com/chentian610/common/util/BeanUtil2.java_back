@@ -1,0 +1,399 @@
+package com.chentian610.common.util;
+
+import java.util.List;
+
+import com.chentian610.common.vo.BaseVO;
+import net.sf.json.JSON;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONException;
+import net.sf.json.JSONObject;
+import net.sf.json.xml.XMLSerializer;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
+import com.chentian610.common.vo.ReceiveVO;
+
+
+public class BeanUtil {
+
+	/**
+	 * 将Json数组格式的字符串转换成List集合
+	 * @param bean
+	 * @return
+	 */
+	public static <T> String beanToJson(T bean){
+		JSONObject jsonObj = JSONObject.fromObject(bean);
+		return jsonObj.toString();
+	}
+
+	/**
+	 * 将Json数组格式的字符串转换成List集合
+	 * @param jsonStr
+	 * @param clazz
+	 * @return
+	 */
+	public static <T> List<T> jsonToList(String jsonStr, Class<T> clazz){
+		List<T> list = new ArrayList<T>();
+		if (StringUtil.isEmpty(jsonStr)) return list;
+		JSONArray array = JSONArray.fromObject(jsonStr);
+		for (int i = 0; i < array.size(); i++) {
+			JSONObject object = (JSONObject) array.get(i);
+			T reObj = formatJsonToBean(object, clazz);
+			if(reObj != null){
+				list.add(reObj);
+			}
+		}
+		return list;
+	}
+
+
+	/**
+	 * 将List数据集转换成json格式数组
+	 * @param list
+	 * @return
+	 */
+	public static <T> JSONArray ListTojson(List<T> list){
+		JSONArray jsonarray = JSONArray.fromObject(list);
+		System.out.println(jsonarray);
+		return jsonarray;
+	}
+
+	/**
+	 * 将一个数据集中的某个字段连接成一个字符串
+	 * @param list 数据集
+	 * @param filed 字段
+	 * @return
+	 */
+	public static <T> String getContactFiled(List<T> list,String filed){
+		if (ListUtil.isEmpty(list)) return null;
+		StringBuffer resultStr = new StringBuffer();
+		Class<?>  cls = list.get(0).getClass();
+		Method methodGet;
+		try {
+			methodGet = cls.getDeclaredMethod(filed);
+			for (int i = 0; i < list.size(); i++) {
+				T object = list.get(i);
+				resultStr.append(methodGet.invoke(object)).append("，");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultStr.substring(0,resultStr.length()-1).toString();
+	}
+
+
+	public static void main(String []args) throws Exception{
+		String xml = "<MSG_BODY>"
+				+"<TownList>"
+				+"	<TownEntity>"
+				+"		<TownId>101</TownId>"
+				+"		<TownName>东区</TownName>"
+				+"		<CityId>zs</CityId>"
+				+"		<Code>002</Code>"
+				+"		<Sequence>999</Sequence>"
+				+"	</TownEntity>"
+				+"	<TownEntity>"
+				+"		<TownId>104</TownId>"
+				+"		<TownName>火炬区</TownName>"
+				+"		<CityId>zs</CityId>"
+				+"		<Code>003</Code>"
+				+"		<Sequence>999</Sequence>"
+				+"	</TownEntity>"
+				+"</TownList>"
+				+"</MSG_BODY>";
+		XMLToJson(xml);
+	}
+
+
+	/**
+	 * 将XML转换成json
+	 * @param xml
+	 * @return
+	 */
+	public static String XMLToJson(String xml){
+//        String xml = "<root><name type='type'>zhaipuhong</name><gender>male</gender><birthday><year>1970</year><month>12</month><day>17</day></birthday></root>";
+		XMLSerializer xmlSerializer = new XMLSerializer();
+		JSON json = xmlSerializer.read( xml );
+		System.out.println( json.toString(2) );
+		return json.toString();
+	}
+
+
+	/**
+	 * 将JSON转换成对象
+	 * @param json
+	 * @param clazz
+	 * @author chenth
+	 * @return
+	 */
+	public static <T> T formatJsonToBean(JSONObject json, Class<T> clazz){
+		T bean = null;
+		try {
+			bean = clazz.newInstance();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		// 取出fromBean里的所有方法
+		Method[] methods = clazz.getDeclaredMethods();
+		//所有字段
+		Field[] fields = clazz.getDeclaredFields();
+		for (Field field : fields) {
+			try {
+				//获得带有set方法的字段
+				String fieldSetName = parGetName(field.getName(),"set");
+				if (!checkHaveMethod(methods, fieldSetName) || !json.containsKey(field.getName())) {
+					continue;
+				}
+				Method fieldSetMet = clazz.getMethod(fieldSetName, field.getType());
+				String value =json.get(field.getName())+"";
+				if (null != value && !"".equals(value)) {
+					String fieldType = field.getType().getSimpleName();
+					if ("String".equals(fieldType)) {
+						fieldSetMet.invoke(bean, value);
+					} else if ("Date".equals(fieldType)) {
+						Date temp = DateUtil.dateTimeFormat(value);
+						fieldSetMet.invoke(bean, temp);
+					} else if ("Integer".equals(fieldType)
+							|| "int".equals(fieldType)) {
+						Integer intval = Integer.parseInt(value);
+						fieldSetMet.invoke(bean, intval);
+					} else if ("Long".equalsIgnoreCase(fieldType)) {
+						Long temp = Long.parseLong(value);
+						fieldSetMet.invoke(bean, temp);
+					} else if ("Double".equalsIgnoreCase(fieldType)) {
+						Double temp = Double.parseDouble(value);
+						fieldSetMet.invoke(bean, temp);
+					} else if ("Boolean".equalsIgnoreCase(fieldType)) {
+						Boolean temp = Boolean.parseBoolean(value);
+						fieldSetMet.invoke(bean, temp);
+					} else {
+						System.out.println("没有可以转换的类型" + fieldType);
+					}
+				}
+
+			} catch (Exception e) {
+//            	e.printStackTrace();
+				continue;
+			}
+		}
+		return bean;
+	}
+
+	/**
+	 * 将Map转换成javaBean，返回需要的实体对象
+	 * @param map 待转换的Map
+	 * @param clazz 需要转换的实体类
+	 * @author chenth
+	 */
+	public static <T> T formatMapToBean(Map<?, ?> map, Class<T> clazz){
+		T bean = null;
+		try {
+			bean = clazz.newInstance();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		List<Method> m_list=new ArrayList<Method>();
+		List<Field> f_list=new ArrayList<Field>();
+		// 取出fromBean里的所有方法
+		Method[] methods = clazz.getDeclaredMethods();
+		//所有字段
+		Field[] fields = clazz.getDeclaredFields();
+		for (Field field : fields) {
+			f_list.add(field);
+		}
+
+		for (Method method : methods) {
+			m_list.add(method);
+		}
+
+		if (BaseVO.class.isAssignableFrom(clazz)) {
+			// 取出fromBean里的所有方法
+			Method[] base_methods = BaseVO.class.getDeclaredMethods();
+			for (Method method : base_methods) {
+				m_list.add(method);
+			}
+			//所有字段
+			Field[] base_fields = BaseVO.class.getDeclaredFields();
+			for (Field field : base_fields) {
+				f_list.add(field);
+			}
+		}
+
+		for (Field field : f_list) {
+			try {
+				//获得带有set方法的字段
+				String fieldSetName = parGetName(field.getName(),"set");
+				if (!checkHaveMethod(m_list, fieldSetName)) {
+					continue;
+				}
+				Method fieldSetMet = clazz.getMethod(fieldSetName, field.getType());
+				String value =map.get(field.getName())==null?null:map.get(field.getName())+"";
+				if ((null != value) && (!"".equals(value))) {
+					String fieldType = field.getType().getSimpleName();
+					if ("String".equals(fieldType)) {
+						fieldSetMet.invoke(bean, value);
+					} else if ("Date".equals(fieldType)) {
+						Date temp = DateUtil.smartFormat(value);
+						fieldSetMet.invoke(bean, temp);
+					} else if ("Integer".equals(fieldType)
+							|| "int".equals(fieldType)) {
+						Integer intval = Integer.parseInt(value);
+						fieldSetMet.invoke(bean, intval);
+					} else if ("Long".equalsIgnoreCase(fieldType)) {
+						Long temp = Long.parseLong(value);
+						fieldSetMet.invoke(bean, temp);
+					} else if ("Double".equalsIgnoreCase(fieldType)) {
+						Double temp = Double.parseDouble(value);
+						fieldSetMet.invoke(bean, temp);
+					} else if ("Boolean".equalsIgnoreCase(fieldType)) {
+						Boolean temp = Boolean.parseBoolean(value);
+						fieldSetMet.invoke(bean, temp);
+					} else {
+						System.out.println("没有可以转换的类型" + fieldType);
+					}
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				continue;
+			}
+		}
+		return bean;
+	}
+
+	private static boolean checkHaveMethod(List<Method> m_list,
+										   String methodName) {
+		for (Method met : m_list) {
+			if (methodName.equals(met.getName())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+
+	/**
+	 * 将传来的参数转换成javaBean，返回需要的实体对象
+	 * @param clazz 需要转换的实体类
+	 * @author chenth
+	 */
+	public static <T> T formatToBean(Class<T> clazz){
+		return formatMapToBean(ActionUtil.getParameterMap(),clazz);
+	}
+
+
+	/**
+	 * 拼接某属性的 got方法
+	 * @param fieldName
+	 * @return String
+	 */
+	public static String parGetName(String fieldName,String add) {
+		if (null == fieldName || "".equals(fieldName)) {
+			return null;
+		}
+		return add + fieldName.substring(0, 1).toUpperCase()
+				+ fieldName.substring(1);
+	}
+
+	/**
+	 * 判断是否存在某属性的 get方法
+	 * @param methods
+	 * @param methodName
+	 * @return boolean
+	 */
+	public static boolean checkHaveMethod(Method[] methods, String methodName) {
+		for (Method met : methods) {
+			if (methodName.equals(met.getName())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	/**
+	 * 返回由对象的属性为key,值为map的value的Map集合
+	 *
+	 * @param obj
+	 *            Object
+	 * @return mapValue Map<String,String>
+	 * @throws Exception
+	 */
+	public static Map<String, Object> getFieldVlaue(Object obj) {
+		Map<String, Object> mapValue = new HashMap<String, Object>();
+		Class<?> cls = obj.getClass();
+		String nameType = cls.getSimpleName();
+		if ("Integer".equals(nameType)) {
+			mapValue.put("INT_VALUE",obj);
+			return mapValue;
+		}
+		if ("String".equals(nameType)) {
+			mapValue.put("STRING_VALUE",obj);
+			return mapValue;
+		}
+		if ("Float".equals(nameType)) {
+			mapValue.put("FLOAT_VALUE",obj);
+			return mapValue;
+		}
+		if ("Double".equals(nameType)) {
+			mapValue.put("DOUBLE_VALUE",obj);
+			return mapValue;
+		}
+
+		Field[] fields = cls.getDeclaredFields();
+		for (Field field : fields) {
+			String name = field.getName();
+			String strGet = "get" + name.substring(0, 1).toUpperCase() + name.substring(1, name.length());
+			if ("getSerialVersionUID".equals(strGet)) continue;
+			Method methodGet;
+			try {
+				methodGet = cls.getDeclaredMethod(strGet);
+				Object object = methodGet.invoke(obj);
+				mapValue.put(name, object);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return mapValue;
+	}
+
+	/**
+	 * 将重复的接收单位去重复
+	 * @param list
+	 * @author chenth
+	 * @return
+	 */
+	public static List<ReceiveVO> removeDuplicate(List<ReceiveVO> list) {
+		List<ReceiveVO> returnList=new ArrayList<ReceiveVO>();
+		HashMap<String,ReceiveVO> tempMap = new HashMap<String,ReceiveVO>();
+		//先将所有接受者存放到HashMap中
+		for (ReceiveVO rvo:list) tempMap.put(RedisKeyUtil.getGroupKey(rvo),rvo);
+		//遍历，去重复
+		for (ReceiveVO rvo:list) {
+			//班级或者寝室
+			if (IntegerUtil.isNotEmpty(rvo.getGroup_id()) && IntegerUtil.isNotEmpty(rvo.getTeam_id()))
+			{
+				String groupKey = RedisKeyUtil.getGroupKey(ActionUtil.getSchoolID(),rvo.getTeam_type(),rvo.getGroup_id(),0);
+				String schoolKey = RedisKeyUtil.getGroupKey(ActionUtil.getSchoolID(),rvo.getTeam_type(),0,0);
+				if (tempMap.containsKey(groupKey) || tempMap.containsKey(schoolKey)) continue;
+				returnList.add(rvo);
+			}
+			//年级
+			else if (IntegerUtil.isNotEmpty(rvo.getGroup_id()) && IntegerUtil.isEmpty(rvo.getTeam_id()))
+			{
+				String schoolKey = RedisKeyUtil.getGroupKey(ActionUtil.getSchoolID(),rvo.getTeam_type(),0,0);
+				if (tempMap.containsKey(schoolKey)) continue;
+				returnList.add(rvo);
+			} else returnList.add(rvo);
+		}
+		return returnList;
+	}
+}

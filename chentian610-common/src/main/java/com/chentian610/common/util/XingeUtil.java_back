@@ -1,0 +1,41 @@
+package com.chentian610.chentian610.util;
+
+import com.tencent.xinge.XingeApp;
+
+public class XingeUtil {
+	
+//	private XingeApp ios_parent;
+//	private XingeApp android_parent;
+//	private XingeApp ios_teacher;
+//	private XingeApp android_teacher;
+//	
+//	public XingeUtil(String user_type) {
+//		if (DictConstants.APPTYPE_ANDROID.equals(user_type)) {
+//			if (DictConstants.USERTYPE_PARENT.equals(ActionUtil.getUserType()))
+//				android_parent = new XingeApp(Constants.ACCESS_ID_PARENT, Constants.SECRET_KEY_PARENT);
+//				android_teacher= new XingeApp(Constants.ACCESS_ID_TEACHER,Constants.SECRET_KEY_TEACHER);
+//		} else {
+//			android_parent = new XingeApp(Constants.ACCESS_ID_IOS_PARENT, Constants.SECRET_KEY_IOS_PARENT);
+//			android_teacher= new XingeApp(Constants.ACCESS_ID_IOS_TEACHER,Constants.SECRET_KEY_IOS_TEACHER);
+//		}
+//	}
+	
+	public synchronized void pushParent(String title,String content,String account) throws InterruptedException{
+		if (account.length()==1) account="0"+account;
+		XingeApp.pushAccountAndroid(Constants.ACCESS_ID_PARENT, Constants.SECRET_KEY_PARENT, title, content, account);
+		XingeApp.pushAccountIos(Constants.ACCESS_ID_PARENT, Constants.SECRET_KEY_PARENT, title, account,XingeApp.IOSENV_DEV);
+	}
+	public synchronized void pushTeacher(String title,String content,String account) throws InterruptedException{
+		if (account.length()==1) account="0"+account;
+		XingeApp.pushAccountAndroid(Constants.ACCESS_ID_TEACHER, Constants.SECRET_KEY_TEACHER, title, content, account);
+		XingeApp.pushAccountIos(Constants.ACCESS_ID_TEACHER, Constants.SECRET_KEY_TEACHER, title, account,XingeApp.IOSENV_DEV);
+	}
+	public synchronized void pushAll(String title,String content,String account) throws InterruptedException{
+		if (account.length()==1) account="0"+account;
+		XingeApp.pushAccountAndroid(Constants.ACCESS_ID_PARENT, Constants.SECRET_KEY_PARENT, title, content, account);
+		XingeApp.pushAccountIos(Constants.ACCESS_ID_PARENT, Constants.SECRET_KEY_PARENT, title, account,XingeApp.IOSENV_DEV);
+		
+		XingeApp.pushAccountAndroid(Constants.ACCESS_ID_TEACHER, Constants.SECRET_KEY_TEACHER, title, content, account);
+		XingeApp.pushAccountIos(Constants.ACCESS_ID_TEACHER, Constants.SECRET_KEY_TEACHER, title, account,XingeApp.IOSENV_DEV);
+	}
+}

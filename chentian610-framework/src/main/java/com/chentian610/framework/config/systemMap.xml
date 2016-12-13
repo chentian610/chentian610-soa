@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="systemMap">
+	<select id="getCount" parameterType="HashMap" resultType="Integer">
+		select count(1) from ($SQL_ID$)
+	</select>
+	
+	<select id="getListCount" resultType="Integer">
+		select found_rows();
+	</select>
+	
+	<select id="getAutoIncrementID" resultType="Integer">
+		SELECT LAST_INSERT_ID();
+	</select>
+</mapper>
+

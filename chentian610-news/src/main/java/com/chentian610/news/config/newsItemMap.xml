@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="newsItemMap">
+	<!--插入表kt_bus_news -->
+	<insert id="insertNewsItemBatch" parameterType="List">
+	insert into kt_bus_news_item
+		(
+		news_id,
+		school_id,
+		content,
+		content_text,
+		create_date,
+		create_by,
+		version
+		) VALUES
+		<foreach collection="list" item="item" index="index"  separator=",">
+		(
+		#{item.news_id},
+		#{item.school_id},
+		#{item.content},
+		#{item.content_text},
+		#{item.create_date},
+		#{item.create_by},
+		0
+		)
+		</foreach>
+	</insert>
+	<!--更新表kt_bus_news -->
+	<update id="updateNewsItem" parameterType="NewsItemVO">update kt_bus_news_item
+		set
+	  	content = #{content},
+	  	content_text = #{content_text},
+		update_by = #{update_by},
+		update_date = #{update_date},
+		version = version + 1
+		where news_id=#{news_id}
+	</update>
+	<!--查询表kt_bus_news -->
+	<select id="getNewsItemList" parameterType="Integer" resultType="NewsItemVO">
+	SELECT
+		item_id as item_id,
+		school_id as school_id,
+		news_id as news_id,
+		content as content,
+		content_text as content_text,
+		create_by as create_by,
+		create_date as create_date,
+		update_by as update_by,
+		update_date as update_date,
+		version as version
+	FROM kt_bus_news_item 
+	WHERE news_id = #{news_id}
+	</select>
+	<!--删除表kt_bus_news -->
+	<delete id="deleteNewsItemById" parameterType="Integer">
+	    delete from kt_bus_news_item
+		where news_id = #{news_id}
+	</delete>
+</mapper>
+

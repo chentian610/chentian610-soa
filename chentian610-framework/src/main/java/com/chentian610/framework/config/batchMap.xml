@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="batchMap">
+	<insert id="batchInsert" parameterType="List">
+		insert into kt_bas_bedroom_copy(
+			school_id,
+			bedroom_code,
+			create_by,
+			create_date)
+	    values 
+	    <foreach collection="list" item="item" index="index" separator="," > 
+	        (
+	        #{item.school_id},
+			#{item.bedroom_code},
+			#{item.create_by},
+			#{item.create_date}) 
+	    </foreach> 
+	</insert>
+</mapper>
+
