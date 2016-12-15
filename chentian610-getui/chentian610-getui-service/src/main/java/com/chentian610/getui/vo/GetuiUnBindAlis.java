@@ -1,7 +1,7 @@
-package com.chentian610.chentian610.getui.vo;
+package com.chentian610.getui.vo;
 
 import com.gexin.rp.sdk.http.IGtPush;
-import com.chentian610.chentian610.getui.GetuiConfig;
+import com.chentian610.getui.GetuiConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -13,10 +13,10 @@ import redis.clients.jedis.ShardedJedisPool;
 @Repository("jedisDS") 
 public class JedisDataSourceImpl implements JedisDataSource {
     private static final Logger LOG = LoggerFactory.getLogger(JedisDataSourceImpl.class);
-    
-    @Autowired
+
+//    @Autowired
     private ShardedJedisPool shardedJedisPool;
-    
+
     @Autowired
     private JedisPool jedisPool;
     

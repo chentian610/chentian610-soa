@@ -1,4 +1,4 @@
-package com.chentian610.chentian610.getui.init;
+package com.chentian610.getui.init;
 
 import com.chentian610.framework.DataInterceptor;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.chentian610.chentian610.getui.service.impl;
+package com.chentian610.getui.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.chentian610.chentian610.getui.service.GetuiService;
+import com.chentian610.getui.service.GetuiService;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.chentian610.chentian610.getui.vo.GetuiPush;
+import com.chentian610.getui.vo.GetuiPush;
 import com.chentian610.common.vo.ReceiveVO;
 import com.chentian610.common.DictConstants;
 import com.chentian610.common.util.ActionUtil;

@@ -43,7 +43,7 @@ public class MyResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     public Object beforeBodyWrite(Object resultVO, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> converterType, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
     	String requestUrl = serverHttpRequest.getURI().getPath();
     	logger.info("["+requestUrl+"],Request take time:"+(System.currentTimeMillis()- ActionUtil.getSysTime().getTime())+"ms");
-    	//防止直接返回字符串的时候被转换成Map而导致错误
+        //防止直接返回字符串的时候被转换成Map而导致错误
     	if (String.class == methodParameter.getParameterType()) return JSON.toJSONString(ResponseUtils.sendSuccess(resultVO));
     	ResultField serializedField = methodParameter.getMethodAnnotation(ResultField.class);
     	//判断是否有字段过滤设置

@@ -2,6 +2,8 @@ package com.chentian610.common;
 
 public class Constants {
 	
+	public static final String DEFALHEADPATH = "http://112.124.100.26/file/APP4/user/img_user_big.jpg";
+
 	/**
 	 * 降序排序
 	 */
@@ -155,5 +157,26 @@ public class Constants {
 	 * 是否启用标记：关闭
 	 */
 	public static final String OFF = "FALSE";
+
+	/**
+	 * 分隔符 ,
+	 */
+	public static final String SPLIT_FLAG = ",";
+
+	/**
+	 * 数据库中是否标记：是 1
+	 */
+	public static final Integer TRUE_FLAG = 1;
+
+
+	/**
+	 * 数据库中是否标记：否 0
+	 */
+	public static final Integer FALSE_FLAG = 0;
+
+	/**
+	 * 相册类型：班级
+	 */
+	public static final String DEFAULT_CLASS_IMG_URL = "images/class_btn_class.png";
 
 }

@@ -1,4 +1,4 @@
-package com.chentian610.chentian610.news.vo;
+package com.chentian610.news.vo;
 
 import com.chentian610.common.vo.BaseVO;
 

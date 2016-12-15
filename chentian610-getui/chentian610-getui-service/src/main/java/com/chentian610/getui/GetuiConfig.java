@@ -1,6 +1,6 @@
-package com.chentian610.chentian610.getui;
+package com.chentian610.getui;
 
-import com.chentian610.chentian610.getui.vo.GetuiVO;
+import com.chentian610.getui.vo.GetuiVO;
 import com.chentian610.common.util.SpringBeanUtil;
 import com.chentian610.framework.GeneralDAO;
 import org.slf4j.Logger;

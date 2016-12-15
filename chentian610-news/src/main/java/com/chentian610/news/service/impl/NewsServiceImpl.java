@@ -1,7 +1,7 @@
-package com.chentian610.chentian610.news.service.impl;
+package com.chentian610.news.service.impl;
 
-import com.chentian610.chentian610.news.service.NewsService;
-import com.chentian610.chentian610.news.vo.NewsVO;
+import com.chentian610.news.service.NewsService;
+import com.chentian610.news.vo.NewsVO;
 import com.chentian610.common.util.ActionUtil;
 import com.chentian610.common.util.DateUtil;
 import com.chentian610.common.util.StringUtil;

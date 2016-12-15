@@ -29,7 +29,7 @@ public class RequestInterceptor extends BaseController implements HandlerInterce
 					response.setHeader("url", request.getServerName());//服务器域名
 				} 
 			}
-			throw new RuntimeException("您还未登陆，请先登录系统......");
+			throw new BusinessException("您还未登陆，请先登录系统......");
 			}
 		else return true;
 	}

@@ -1,4 +1,4 @@
-package com.chentian610.chentian610.getui.init;
+package com.chentian610.getui.init;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,7 +71,7 @@ public class RedisConfig {
 
     @Bean
     public JedisPool jedisPool() {
-        logger.info("课道平台JedisPool Bean初始化");
+        logger.info("chentian610JedisPool Bean初始化");
         JedisPool jedisPool = new JedisPool(jedisPoolConfig(),host,port,timeout,password);
         return jedisPool;
     }

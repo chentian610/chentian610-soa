@@ -24,7 +24,7 @@
 	<description>The parent project of dubbo</description>
 	<organization>
 		<name>chentian610</name>
-		<url>http://www.chentian610.com</url>
+		<url>https://github.com/chentian610/chentian610-soa</url>
 	</organization>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -38,7 +38,6 @@
 		<module>chentian610-getui</module>
 		<module>chentian610-news</module>
 		<module>chentian610-web</module>
-		<!--<module>dubbo-tool/dubbo-demo-lite-archetype</module>-->
 	</modules>
 	<properties>
 		<!-- Common libs -->
@@ -98,7 +97,6 @@
 
         <commons_pool_version>1.6</commons_pool_version>
 		<commons-lang_version>2.6</commons-lang_version>
-        <tomcat_embed_version>8.0.11</tomcat_embed_version>
 		<!-- Log libs -->
 		<!--<slf4j_version>1.6.2</slf4j_version>-->
 		<slf4j_version>1.7.15</slf4j_version>
@@ -461,16 +459,6 @@
 				<version>${commons_pool_version}</version>
 			</dependency>
             <dependency>
-                <groupId>org.apache.tomcat.embed</groupId>
-                <artifactId>tomcat-embed-core</artifactId>
-                <version>${tomcat_embed_version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.tomcat.embed</groupId>
-                <artifactId>tomcat-embed-logging-juli</artifactId>
-                <version>${tomcat_embed_version}</version>
-            </dependency>
-            <dependency>
                 <groupId>javax.ws.rs</groupId>
                 <artifactId>javax.ws.rs-api</artifactId>
                 <version>${rs-api_version}</version>
@@ -530,6 +518,12 @@
 		<dependency>
 			<groupId>org.easymock</groupId>
 			<artifactId>easymock</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>org.objenesis</artifactId>
+					<groupId>objenesis</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.easymock</groupId>

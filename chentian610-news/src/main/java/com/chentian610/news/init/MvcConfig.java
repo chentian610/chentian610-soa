@@ -1,4 +1,4 @@
-package com.chentian610.chentian610.news.init;
+package com.chentian610.news.init;
 
 import com.chentian610.framework.DataInterceptor;
 import org.springframework.context.annotation.Bean;

@@ -2,6 +2,7 @@ package com.chentian610.framework.impl;
 
 import com.chentian610.common.util.ActionUtil;
 import com.chentian610.common.util.ListUtil;
+import com.chentian610.framework.BusinessException;
 import com.chentian610.framework.GeneralDAO;
 import com.chentian610.framework.MsgService;
 import org.apache.ibatis.session.RowBounds;
@@ -156,13 +157,13 @@ public class IbatisGeneralDAOImpl implements GeneralDAO {
 	}
 
 
-	private RuntimeException handException(Exception e) {
+	private BusinessException handException(Exception e) {
 		if (e.getClass().toString().contains("DuplicateKeyException"))
 		{
 			String cause = e.getCause().toString();
 			int index = cause.lastIndexOf("for key '");
 			String indexName = cause.substring(index+9, cause.length()-1);
-			return new RuntimeException(MsgService.getMsg(indexName));
+			return new BusinessException(MsgService.getMsg("DB_"+indexName));
 		}
 		if (e.getClass().toString().contains("BadSqlGrammarException"))
 			{
@@ -171,7 +172,7 @@ public class IbatisGeneralDAOImpl implements GeneralDAO {
 			}
 		_logger.error(e.getMessage());
 		e.printStackTrace();
-		return new RuntimeException("数据异常，请刷新后重试...");
+		return new BusinessException("数据异常，请刷新后重试...");
 	}
 	
 

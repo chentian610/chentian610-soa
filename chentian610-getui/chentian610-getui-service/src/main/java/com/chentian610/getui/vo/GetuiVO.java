@@ -1,4 +1,4 @@
-package com.chentian610.chentian610.getui.vo;
+package com.chentian610.getui.vo;
 
 
 public class GetuiVO {

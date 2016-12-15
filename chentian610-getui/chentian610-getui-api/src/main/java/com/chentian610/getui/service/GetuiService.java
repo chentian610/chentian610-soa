@@ -1,4 +1,4 @@
-package com.chentian610.chentian610.getui.service;
+package com.chentian610.getui.service;
 
 import com.chentian610.common.vo.ReceiveVO;
 

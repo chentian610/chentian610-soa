@@ -1,4 +1,4 @@
-package com.chentian610.chentian610.getui;
+package com.chentian610.getui;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

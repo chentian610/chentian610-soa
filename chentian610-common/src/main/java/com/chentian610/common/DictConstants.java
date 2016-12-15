@@ -565,7 +565,7 @@ public class DictConstants {
 	/**
 	 * 手机号码类型：中国电信
 	 */
-	public static final String PHONE_TYPE_CTC="3";	
+	public static final String PHONE_TYPE_CTC="3";
 	
 	/**
 	 *  党员建设

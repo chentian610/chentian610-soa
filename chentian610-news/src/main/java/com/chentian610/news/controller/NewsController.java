@@ -1,9 +1,9 @@
-package com.chentian610.chentian610.news.controller;
+package com.chentian610.news.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.chentian610.chentian610.getui.service.GetuiService;
-import com.chentian610.chentian610.news.service.NewsService;
-import com.chentian610.chentian610.news.vo.NewsVO;
+import com.chentian610.getui.service.GetuiService;
+import com.chentian610.news.service.NewsService;
+import com.chentian610.news.vo.NewsVO;
 import com.chentian610.common.DictConstants;
 import com.chentian610.common.util.ActionUtil;
 import com.chentian610.common.util.StringUtil;
@@ -34,13 +34,13 @@ public class NewsController extends BaseController{
 	 * 添加新闻信息并发送动态信息和推送
 	 * @param vo
 	 */
-	@PutCache(name="newsList",value="school_id,news_code222")
+	@PutCache(name="newsList",value="school_id,news_code")
 	@RequestMapping(value="/addNews")
 	@ResultField(includes={"news_id","title","content","main_pic_url","dept_name","deploy_date","module_code","dict_group","template_type"})
 	public @ResponseBody Object addNews(NewsVO vo){
 		vo.setDict_group(ActionUtil.getParameter("dict_group"));
 		newsService.addNews(vo);
-//		newsService.addInformation(vo);
+		//以下发推送
 		HashMap<String,String> dataMap = new HashMap<String,String>();
 		dataMap.put("module_code",DictConstants.MODULE_CODE_SCHOOLSTYLE);
 		//生成module_pkid

@@ -21,9 +21,12 @@ public class BaseController {
 	@ResponseStatus(value=HttpStatus.OK)
 	public @ResponseBody Object handleException(Exception ex, HttpServletRequest request) {
 		//写入错误日志
-		if (ex instanceof CacheException) 
-			return ResponseUtils.sendFailure(ex.getMessage(),100);
 		logger.error(ex.getMessage(), ex);
-		return ResponseUtils.sendFailure(ex.getMessage());
+		if (ex instanceof CacheException)
+			return ResponseUtils.sendFailure(ex.getMessage(),100);
+		else if (ex instanceof BusinessException)
+			return ResponseUtils.sendFailure(ex.getMessage());
+		else
+			return ResponseUtils.sendFailure(MsgService.getMsg("UNEXPECTED_EXCEPTION"));
 	}
 }

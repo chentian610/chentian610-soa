@@ -1,4 +1,4 @@
-package com.chentian610.chentian610.getui.vo;
+package com.chentian610.getui.vo;
 
 import com.alibaba.fastjson.JSON;
 import com.gexin.rp.sdk.base.impl.ListMessage;
@@ -7,7 +7,7 @@ import com.gexin.rp.sdk.base.impl.Target;
 import com.gexin.rp.sdk.base.payload.APNPayload;
 import com.gexin.rp.sdk.http.IGtPush;
 import com.gexin.rp.sdk.template.TransmissionTemplate;
-import com.chentian610.chentian610.getui.GetuiConfig;
+import com.chentian610.getui.GetuiConfig;
 import com.chentian610.common.util.ListUtil;
 import com.chentian610.common.util.StringUtil;
 import org.slf4j.Logger;

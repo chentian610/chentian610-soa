@@ -1,7 +1,7 @@
-package com.chentian610.chentian610.news.service;
+package com.chentian610.news.service;
 
-import com.chentian610.chentian610.news.vo.NewsCodeVO;
-import com.chentian610.chentian610.news.vo.NewsVO;
+import com.chentian610.news.vo.NewsCodeVO;
+import com.chentian610.news.vo.NewsVO;
 
 import java.util.List;
 import java.util.Map;

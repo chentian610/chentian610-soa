@@ -1,4 +1,4 @@
-package com.chentian610.chentian610.getui.init;
+package com.chentian610.getui.init;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -73,19 +73,9 @@ public class DatabaseConfig {
     @Value("${jdbc.testOnReturn}")
     private boolean testOnReturn;
 
-    /**
-     * 描述 : 初始化配置文件必须写的方法，否则获取不到配置文件值
-     * @return
-     */
-//    @Bean
-//    public static PropertySourcesPlaceholderConfigurer placehodlerConfigurer() {
-//        logger.info("初始化配置文件......");
-//        return new PropertySourcesPlaceholderConfigurer();
-//    }
-
     @Bean(name = "dataSource")
     public DataSource dataSource() {
-        logger.info("课道平台数据库连接池初始化开始：URL:"+dbUrl);
+        logger.info("chentian610数据库连接池初始化开始：URL:"+dbUrl);
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(jdbcDriver);
         dataSource.setUrl(dbUrl);
@@ -108,13 +98,12 @@ public class DatabaseConfig {
 
     @Bean
     public SqlSessionFactory sqlSessionFactory() throws Exception {
-        logger.info("课道平台MyBatis初始化开始.................");
+        logger.info("chentian610MyBatis初始化开始.................");
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-//        sessionFactory.setConfigLocation(new ClassPathResource("mybatisframework.xml"));
         sessionFactory.setTypeAliasesPackage("com.chentian610");
         Resource[] resources = new PathMatchingResourcePatternResolver().getResources("classpath*:com/chentian610/**/config/*.xml");
-        logger.info("课道平台MyBatis成功加载Mapper文件数量："+resources.length);
+        logger.info("chentian610MyBatis成功加载Mapper文件数量："+resources.length);
         sessionFactory.setMapperLocations(resources);
         return sessionFactory.getObject();
     }
