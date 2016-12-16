@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="userMap">
+  <!--插入表user-->
+  <insert id="insertUser" parameterType="UserVO">
+    insert into user
+      (
+      user_id,
+      user_name,
+      pass_word,
+      name_cn
+      ) VALUES (
+      #{user_id},
+      #{user_name},
+      #{pass_word},
+      #{name_cn}
+      )
+  </insert>
+  <!--更新表user-->
+  <update id="updateUser" parameterType="UserVO">
+    update user
+      set user_id = #{user_id},
+      user_name = #{user_name},
+      pass_word = #{pass_word},
+      name_cn = #{name_cn}
+  </update>
+  <!--查询表user-->
+  <select id="getUserList" parameterType="UserVO" resultType="UserVO">
+    select
+      user_id as user_id,
+      user_name as user_name,
+      pass_word as pass_word,
+      name_cn as name_cn
+      from user
+      <where>
+        <if test="user_name != null and user_name != ''">
+          user_name = #{user_name}
+        </if>
+        <if test="pass_word != null and pass_word != ''">
+          and pass_word = #{pass_word}
+        </if>
+        <if test="name_cn != null and name_cn != ''">
+          and name_cn like CONCAT('%',#{name_cn},'%'))
+        </if>
+      </where>
+   </select>
+  <!--删除表user-->
+  <delete id="deleteUser" parameterType="UserVO">
+      delete from user where id = #{id}
+  </delete>
+</mapper>
+

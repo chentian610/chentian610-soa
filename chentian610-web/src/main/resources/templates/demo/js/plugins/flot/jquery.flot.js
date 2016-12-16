@@ -501,7 +501,7 @@
             }
 
             $.each(allAxes(), function (_, axis) {
-                // init axis
+                // config axis
                 axis.datamin = topSentry;
                 axis.datamax = bottomSentry;
                 axis.used = false;
@@ -735,7 +735,7 @@
                 existingOverlay = placeholder.children("canvas.overlay");
 
             if (existingCanvas.length == 0 || existingOverlay == 0) {
-                // init everything
+                // config everything
                 
                 placeholder.html(""); // make sure placeholder is clear
             

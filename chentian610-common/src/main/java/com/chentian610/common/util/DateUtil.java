@@ -6,7 +6,7 @@
  * <p>Date:2010-12-27</p>
  * <p>Modify:</p>
  * <p>Bug:</p>
- * @author Chenth
+ * @author chentian610
  * @version 1.0
  */
 package com.chentian610.common.util;
@@ -393,7 +393,7 @@ public class DateUtil {
 	 * @param date
 	 * @param minuteCount
 	 * @return
-	 * @author chenth
+	 * @author chentian610
 	 */
 	 public static Date addMinute(Date date, int minuteCount) {
 		  Calendar calendar= Calendar.getInstance();
@@ -407,7 +407,7 @@ public class DateUtil {
 	 * @param date
 	 * @param hourCount
 	 * @return
-	 * @author chenth
+	 * @author chentian610
 	 */
 	 public static Date addHour(Date date, int hourCount) {
 		  Calendar calendar= Calendar.getInstance();
@@ -421,7 +421,7 @@ public class DateUtil {
 	 * @param date
 	 * @param monthCount
 	 * @return
-	 * @author chenth
+	 * @author chentian610
 	 */
 	 public static Date addMonth(Date date, int monthCount) {
 		  Calendar calendar= Calendar.getInstance();
@@ -435,7 +435,7 @@ public class DateUtil {
 	 * @param date
 	 * @param yearCount
 	 * @return
-	 * @author chenth
+	 * @author chentian610
 	 */
 	 public static Date addYear(Date date, int yearCount) {
 		  Calendar calendar= Calendar.getInstance();
@@ -447,7 +447,7 @@ public class DateUtil {
 	 /**
 	 * 获取今天是第几月
 	 * @param date
-	 * @author chenth
+	 * @author chentian610
 	 */
 	 public static int getMonthOfYear(Date date) {
 		  Calendar calendar= Calendar.getInstance();
@@ -588,7 +588,7 @@ public class DateUtil {
 	 /**
 	 * 获取本周在一年中是第几周
 	 * @param date
-	 * @author chenth
+	 * @author chentian610
 	 */
 	 public static int getWeekOfYear(Date date) {
 		  Calendar calendar= Calendar.getInstance();
@@ -599,7 +599,7 @@ public class DateUtil {
 	 /**
 	 * 获取学年以及学期标记
 	 * @param date
-	 * @author chenth
+	 * @author chentian610
 	 */
 	 public static String getYearAndTerm(Date date) {
 		  Calendar calendar= Calendar.getInstance();
@@ -615,7 +615,7 @@ public class DateUtil {
 	 /**
 	 * 获取当前时间的所处学年
 	 * @param date
-	 * @author chenth
+	 * @author chentian610
 	 */
 	 public static int getYearOfTerm(Date date) {
 		  Calendar calendar= Calendar.getInstance();
@@ -629,7 +629,7 @@ public class DateUtil {
 	 /**
 	 * @param date
 	 * @return 星期一返回1，星期二返回2，星期天返回7
-	 * @author chenth
+	 * @author chentian610
 	 */
 	 public static int getWeek(Date date) {
 		  Calendar calendar= Calendar.getInstance();
@@ -642,7 +642,7 @@ public class DateUtil {
 	 /**
 	 * @param date
 	 * @return 以数字形式返回日期的几号
-	 * @author chenth
+	 * @author chentian610
 	 */
 	 public static int getDayOfMonth(Date date) {
 		  Calendar calendar= Calendar.getInstance();

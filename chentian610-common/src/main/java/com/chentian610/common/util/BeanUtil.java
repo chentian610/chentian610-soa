@@ -54,7 +54,7 @@ public class BeanUtil {
 	 * 将Map转换成javaBean，返回需要的实体对象
 	 * @param map 待转换的Map
 	 * @param clazz 需要转换的实体类
-	 * @author chenth
+	 * @author chentian610
 	 */
 	public static <T> T formatMapToBean(Map<?, ?> map, Class<T> clazz){
 		return JSON.parseObject(JSON.toJSONBytes(map),clazz);
@@ -64,7 +64,7 @@ public class BeanUtil {
 	/**
 	 * 将传来的参数转换成javaBean，返回需要的实体对象
 	 * @param clazz 需要转换的实体类
-	 * @author chenth
+	 * @author chentian610
 	 */
 	public static <T> T formatToBean(Class<T> clazz){
 		return formatMapToBean(ActionUtil.getParameterMap(),clazz);

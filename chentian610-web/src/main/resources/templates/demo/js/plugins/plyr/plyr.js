@@ -16,7 +16,7 @@
         youtube: []
     };
 
-    // Default config
+    // Default mapper
     var defaults = {
         enabled: true,
         debug: false,
@@ -1857,7 +1857,7 @@
             // Reset container classname
             player.container.setAttribute('class', config.selectors.container.replace('.', ''));
 
-            // Remove init flag
+            // Remove config flag
             player.init = false;
 
             // Remove controls
@@ -1978,7 +1978,7 @@
         // Initialize instance
         _init();
 
-        // If init failed, return an empty object
+        // If config failed, return an empty object
         if (!player.init) {
             return {};
         }

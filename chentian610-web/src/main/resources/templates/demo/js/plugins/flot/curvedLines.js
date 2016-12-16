@@ -303,7 +303,7 @@
             return result;
         }
 
-    }//end init
+    }//end config
 
     $.plot.plugins.push({
         init : init,

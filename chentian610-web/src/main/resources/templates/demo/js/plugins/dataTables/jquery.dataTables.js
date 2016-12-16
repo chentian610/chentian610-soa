@@ -2994,7 +2994,7 @@
 		// data (show 'loading' message possibly)
 		_fnReDraw( settings );
 	
-		// Server-side processing init complete is done by _fnAjaxUpdateDraw
+		// Server-side processing config complete is done by _fnAjaxUpdateDraw
 		var dataSrc = _fnDataSource( settings );
 		if ( dataSrc != 'ssp' ) {
 			// if there is an ajax source load the data
@@ -3007,7 +3007,7 @@
 						_fnAddData( settings, aData[i] );
 					}
 	
-					// Reset the init display for cookie saving. We've already done
+					// Reset the config display for cookie saving. We've already done
 					// a filter, and therefore cleared it before. So we need to make
 					// it appear 'fresh'
 					settings.iInitDisplayStart = iAjaxStart;
@@ -4566,7 +4566,7 @@
 	/**
 	 * Attempt to load a saved table state
 	 *  @param {object} oSettings dataTables settings object
-	 *  @param {object} oInit DataTables init object so we can override settings
+	 *  @param {object} oInit DataTables config object so we can override settings
 	 *  @memberof DataTable#oApi
 	 */
 	function _fnLoadState ( oSettings, oInit )
@@ -4724,7 +4724,7 @@
 	/**
 	 * Extend objects - very similar to jQuery.extend, but deep copy objects, and
 	 * shallow copy arrays. The reason we need to do this, is that we don't want to
-	 * deep copy array init values (such as aaSorting) since the dev wouldn't be
+	 * deep copy array config values (such as aaSorting) since the dev wouldn't be
 	 * able to override them, but we do want to deep copy arrays.
 	 *  @param {object} out Object to extend
 	 *  @param {object} extender Object from which the properties will be applied to
@@ -5904,14 +5904,14 @@
 				_fnLanguageCompat( oInit.oLanguage );
 			}
 			
-			// If the length menu is given, but the init display length is not, use the length menu
+			// If the length menu is given, but the config display length is not, use the length menu
 			if ( oInit.aLengthMenu && ! oInit.iDisplayLength )
 			{
 				oInit.iDisplayLength = $.isArray( oInit.aLengthMenu[0] ) ?
 					oInit.aLengthMenu[0][0] : oInit.aLengthMenu[0];
 			}
 			
-			// Apply the defaults and init options to make a single init object will all
+			// Apply the defaults and config options to make a single config object will all
 			// options defined from defaults and instance options.
 			oInit = _fnExtend( $.extend( true, {}, defaults ), oInit );
 			
@@ -6188,7 +6188,7 @@
 			
 			
 			/*
-			 * Final init
+			 * Final config
 			 * Cache the header, body and footer as required, creating them if needed
 			 */
 			
@@ -13098,7 +13098,7 @@
 		 * wish to be ordering for the column in question and then return that
 		 * array. The data in the array much be in the index order of the rows in
 		 * the table (not the currently ordering order!). Which order data gathering
-		 * function is run here depends on the `dt-init columns.orderDataType`
+		 * function is run here depends on the `dt-config columns.orderDataType`
 		 * parameter that is used for the column (if any).
 		 *
 		 * The functions defined take two parameters:

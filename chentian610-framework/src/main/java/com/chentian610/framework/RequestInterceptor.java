@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 统一请求拦截器，在这里进行一些基础框架数据的处理。。。。
- * @author Chenth
+ * @author chentian610
  */
 public class RequestInterceptor extends BaseController implements HandlerInterceptor{
 	protected static Log logger = LogFactory.getLog(RequestInterceptor.class);

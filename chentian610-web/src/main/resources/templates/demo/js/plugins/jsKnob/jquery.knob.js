@@ -181,7 +181,7 @@
             });
 
             // wraps all elements in a div
-            // add to DOM before Canvas init is triggered
+            // add to DOM before Canvas config is triggered
             this.$div = $('<div style="'
                 + (this.o.inline ? 'display:inline;' : '')
                 + 'width:' + this.o.width + 'px;height:' + this.o.height + 'px;'
@@ -238,7 +238,7 @@
                 .parent()
                 .bind("configure", cf);
 
-            // finalize init
+            // finalize config
             this._listen()
                 ._configure()
                 ._xy()

@@ -140,7 +140,7 @@ public class RedisKeyUtil {
 	
 	/**
 	 * 获取公共参数组装起来的唯一Key
-	 * @author chenth
+	 * @author chentian610
 	 * @return 唯一Key
 	 */
 	public static String getUnionKey(){
@@ -149,7 +149,7 @@ public class RedisKeyUtil {
 	
 	/**
 	 * 获取公共参数组装起来的唯一Key
-	 * @author chenth
+	 * @author chentian610
 	 * @return 唯一Key
 	 */
 	public static String getUnionKey(Integer school_id, String user_type, Integer user_id, Integer student_id){
@@ -162,7 +162,7 @@ public class RedisKeyUtil {
 	 * 生成分组Key:某个班级的某个用户类型
 	 * @例子：GROUP_KEY:SCHOOL_ID1030:USER_TYPE003010:TEAM_TYPE011005:GROUP_ID1005:TEAM_ID1103
 	 * @含义：前缀           :学校ID        :用户类型               ：团队类型               :年级或者楼层   :班级或者寝室ID           
-	 * @author chenth
+	 * @author chentian610
 	 * @return 唯一Key
 	 */
 	public static String getGroupKey(Integer school_id, String team_type, Integer group_id, Integer team_id) {
@@ -209,7 +209,7 @@ public class RedisKeyUtil {
 	
 	/**
 	 * 生成分组Key
-	 * @author chenth
+	 * @author chentian610
 	 * @return 唯一Key
 	 */
 	public static String getReadKey(Map<String,Object> map) {
@@ -223,7 +223,7 @@ public class RedisKeyUtil {
 	
 	/**
 	 * 生成动态消息的唯一Key
-	 * @author chenth
+	 * @author chentian610
 	 * @return 唯一Key
 	 */
 	public static String getDynamicKey(String module_code, Integer module_pdid, String suffix){
@@ -256,7 +256,7 @@ public class RedisKeyUtil {
 	
 	/**
 	 * 生成动态消息的唯一Key
-	 * @author chenth
+	 * @author chentian610
 	 * @return 唯一Key
 	 */
 	public static String getDynamicKey(String module_code, Long module_pdid, String suffix){
@@ -266,7 +266,7 @@ public class RedisKeyUtil {
 	
 	/**
 	 * 获取个人动态集合Key
-	 * @author chenth
+	 * @author chentian610
 	 * @return 唯一Key
 	 */
 	public static String getUnionDynamicSetKey(Integer school_id, String user_type, Integer user_id, Integer student_id){
@@ -275,7 +275,7 @@ public class RedisKeyUtil {
 	
 	/**
 	 * 获取个人动态集合Key
-	 * @author chenth
+	 * @author chentian610
 	 * @return 唯一Key
 	 */
 	public static String getUnionDynamicSetKey(){
@@ -284,7 +284,7 @@ public class RedisKeyUtil {
 	
 	/**
 	 * 获取分组动态集合Key
-	 * @author chenth
+	 * @author chentian610
 	 * @return 唯一Key
 	 */
 	public static String getGroupDynamicSetKey(Integer school_id, String team_type, Integer group_id, Integer team_id){
@@ -293,7 +293,7 @@ public class RedisKeyUtil {
 	
 	/**
 	 * 获取分组动态集合Key
-	 * @author chenth
+	 * @author chentian610
 	 * @return 唯一Key
 	 */
 	public static String getGroupDynamicSetKey(ReceiveVO vo){

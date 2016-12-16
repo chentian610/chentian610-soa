@@ -64,7 +64,7 @@ public class SensitiveConfig {
 	 *              }
 	 *      	}
 	 *      }
-	 * @author chenth 
+	 * @author chentian610
 	 * @date 2014年4月20日 下午3:04:20
 	 * @version 1.0
 	 */
@@ -98,7 +98,7 @@ public class SensitiveConfig {
 	
 	/**
 	 * 获取文字中的敏感词
-	 * @author chenth 
+	 * @author chentian610
 	 * @date 2014年4月20日 下午5:10:52
 	 * @param txt 文字
 	 * @param matchType 匹配规则&nbsp;1：最小匹配规则，2：最大匹配规则
@@ -121,7 +121,7 @@ public class SensitiveConfig {
 	
 	/**
 	 * 替换敏感字字符
-	 * @author chenth 
+	 * @author chentian610
 	 * @date 2014年4月20日 下午5:12:07
 	 * @param txt
 	 * @param replaceChar 替换字符，默认*
@@ -133,7 +133,7 @@ public class SensitiveConfig {
 	
 	/**
 	 * 替换敏感字字符
-	 * @author chenth 
+	 * @author chentian610
 	 * @date 2014年4月20日 下午5:12:07
 	 * @param txt
 	 * @param matchType
@@ -154,7 +154,7 @@ public class SensitiveConfig {
 	
 	/**
 	 * 获取替换字符串
-	 * @author chenth 
+	 * @author chentian610
 	 * @date 2014年4月20日 下午5:21:19
 	 * @param replaceChar
 	 * @param length
@@ -172,7 +172,7 @@ public class SensitiveConfig {
 	
 	/**
 	 * 检查文字中是否包含敏感字符，检查规则如下：<br>
-	 * @author chenth 
+	 * @author chentian610
 	 * @date 2014年4月20日 下午4:31:03
 	 * @param txt
 	 * @param beginIndex

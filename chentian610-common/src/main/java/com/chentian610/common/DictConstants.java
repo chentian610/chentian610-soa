@@ -2,7 +2,7 @@ package com.chentian610.common;
 
 /**
  * 存放数据字典的静态类
- * @author Chenth
+ * @author chentian610
  */
 public class DictConstants {
 	

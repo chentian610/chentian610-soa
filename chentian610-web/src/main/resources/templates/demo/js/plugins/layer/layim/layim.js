@@ -124,7 +124,7 @@ xxim.layinit = function(){
     try{
         /*
         if(!localStorage.layimState){       
-            config.aniTime = 0;
+            mapper.aniTime = 0;
             localStorage.layimState = 1;
         }
         */
@@ -445,7 +445,7 @@ xxim.transmit = function(){
             }, 500);
             
             /*
-            that.json(config.api.sendurl, data, function(datas){
+            that.json(mapper.api.sendurl, data, function(datas){
             
             });
             */

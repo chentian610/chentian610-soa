@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 针对需要跨域的请求作出特殊处理
- * @author Chenth
+ * @author chentian610
  */
 public class CrossInterceptor extends HandlerInterceptorAdapter {
 

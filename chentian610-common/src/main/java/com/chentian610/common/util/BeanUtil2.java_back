@@ -132,7 +132,7 @@ public class BeanUtil {
 	 * 将JSON转换成对象
 	 * @param json
 	 * @param clazz
-	 * @author chenth
+	 * @author chentian610
 	 * @return
 	 */
 	public static <T> T formatJsonToBean(JSONObject json, Class<T> clazz){
@@ -192,7 +192,7 @@ public class BeanUtil {
 	 * 将Map转换成javaBean，返回需要的实体对象
 	 * @param map 待转换的Map
 	 * @param clazz 需要转换的实体类
-	 * @author chenth
+	 * @author chentian610
 	 */
 	public static <T> T formatMapToBean(Map<?, ?> map, Class<T> clazz){
 		T bean = null;
@@ -284,7 +284,7 @@ public class BeanUtil {
 	/**
 	 * 将传来的参数转换成javaBean，返回需要的实体对象
 	 * @param clazz 需要转换的实体类
-	 * @author chenth
+	 * @author chentian610
 	 */
 	public static <T> T formatToBean(Class<T> clazz){
 		return formatMapToBean(ActionUtil.getParameterMap(),clazz);
@@ -368,7 +368,7 @@ public class BeanUtil {
 	/**
 	 * 将重复的接收单位去重复
 	 * @param list
-	 * @author chenth
+	 * @author chentian610
 	 * @return
 	 */
 	public static List<ReceiveVO> removeDuplicate(List<ReceiveVO> list) {

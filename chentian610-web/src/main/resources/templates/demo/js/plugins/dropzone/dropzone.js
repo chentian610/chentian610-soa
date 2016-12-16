@@ -377,7 +377,7 @@
                     },
 
                     /*
-                     Those functions register themselves to the events on init and handle all
+                     Those functions register themselves to the events on config and handle all
                      the user interface specific stuff. Overwriting them won't break the upload
                      but can break the way it's displayed.
                      You can overwrite them if you don't like the default behavior. If you just
@@ -1506,7 +1506,7 @@
                     element = document.querySelector(element);
                 }
                 if ((element != null ? element.dropzone : void 0) == null) {
-                    throw new Error("No Dropzone found for given element. This is probably because you're trying to access it before Dropzone had the time to initialize. Use the `init` option to setup any additional observers on your Dropzone.");
+                    throw new Error("No Dropzone found for given element. This is probably because you're trying to access it before Dropzone had the time to initialize. Use the `config` option to setup any additional observers on your Dropzone.");
                 }
                 return element.dropzone;
             };

@@ -4471,7 +4471,7 @@
   // Passed to option handlers when there is no old value.
   var Init = CodeMirror.Init = {toString: function(){return "CodeMirror.Init";}};
 
-  // These two are, on init, called from the constructor because they
+  // These two are, on config, called from the constructor because they
   // have to be initialized before the editor can start at all.
   option("value", "", function(cm, val) {
     cm.setValue(val);
@@ -4579,8 +4579,8 @@
     mimeModes[mime] = spec;
   };
 
-  // Given a MIME type, a {name, ...options} config object, or a name
-  // string, return a mode config object.
+  // Given a MIME type, a {name, ...options} mapper object, or a name
+  // string, return a mode mapper object.
   CodeMirror.resolveMode = function(spec) {
     if (typeof spec == "string" && mimeModes.hasOwnProperty(spec)) {
       spec = mimeModes[spec];

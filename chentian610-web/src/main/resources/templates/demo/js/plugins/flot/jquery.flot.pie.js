@@ -697,7 +697,7 @@ More detail and specific examples can be found in the included HTML file.
 			
 		}	
 		
-	} // end init (plugin body)
+	} // end config (plugin body)
 	
 	// define pie specific options and their default values
 	var options = {

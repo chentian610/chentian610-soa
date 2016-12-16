@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 /**
  * 通用消息配置类，将中文提示配置到消息文件里面，用代码获取，防止乱码
- * @author Chenth
+ * @author chentian610
  */
 public class MsgService {
 	private static ResourceBundle rb = ResourceBundle.getBundle("messages");

@@ -3,8 +3,8 @@ package com.chentian610.framework;
 import com.alibaba.fastjson.JSON;
 import com.chentian610.common.util.ActionUtil;
 import com.chentian610.common.vo.ResultVO;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -13,6 +13,7 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,11 +23,11 @@ import java.util.Map;
 /**
  * 返回数据过滤的切面处理
  * 注意：如果业务代码返回null，那么不会进入到这个切面
- * @author chenth
+ * @author chentian610
  */
 @ControllerAdvice(annotations = Controller.class)
 public class MyResponseBodyAdvice implements ResponseBodyAdvice<Object> {
-	protected static Log logger = LogFactory.getLog(MyResponseBodyAdvice.class);
+    private static final Logger logger = LoggerFactory.getLogger(MyResponseBodyAdvice.class);
     //包含项
     private String[] includes = {};
     //排除项
