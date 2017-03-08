@@ -23,7 +23,11 @@
 		<module>chentian610-getui</module>
 		<module>chentian610-user</module>
 		<module>chentian610-web</module>
-	</modules>
+		<module>chentian610-web2</module>
+        <module>chentian610-rocketMQ</module>
+		<module>chentian610-oauth2</module>
+        <module>chentian610-nettyRabbiMQ</module>
+    </modules>
 	<properties>
 		<!-- Common libs -->
 		<!--<spring.bom.version>3.2.9.RELEASE</spring.bom.version>-->

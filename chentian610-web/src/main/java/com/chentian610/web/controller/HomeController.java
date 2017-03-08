@@ -1,6 +1,7 @@
 package com.chentian610.web.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.chentian610.framework.BaseController;
 import com.chentian610.user.service.UserService;
 import com.chentian610.user.vo.UserVO;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 
 @RestController
-public class HomeController {
+public class HomeController extends BaseController{
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @Reference

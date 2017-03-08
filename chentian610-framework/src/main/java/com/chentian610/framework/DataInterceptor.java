@@ -16,7 +16,7 @@ import java.util.Map;
 
 /**
  * 统一请求拦截器，在这里进行一些基础框架数据的处理。。。。
- * @author chentian610
+ * @author com.chentian610
  */
 public class DataInterceptor extends BaseController implements HandlerInterceptor{
 	

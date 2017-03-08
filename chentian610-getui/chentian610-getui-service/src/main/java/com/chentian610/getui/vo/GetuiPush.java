@@ -96,7 +96,7 @@ public class GetuiPush implements Runnable {
 	 * @param module_code 模块编码
 	 * @param module_pkid 模块唯一ID
 	 * @param init_data 关键数据
-	 * @author chentian610
+	 * @author com.chentian610
 	 */
 	private void initPushData(String title,String content,String module_code,String module_pkid,String init_data) {
 		//获取这个学校的配置

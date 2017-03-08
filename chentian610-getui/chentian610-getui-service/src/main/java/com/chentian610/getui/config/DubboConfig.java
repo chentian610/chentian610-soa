@@ -40,7 +40,7 @@ public class DubboConfig {
     @Bean
     public static AnnotationBean annotationBean() {
         AnnotationBean annotationBean = new AnnotationBean();
-        annotationBean.setPackage("com.chentian610");//多个包可使用英文逗号隔开
+        annotationBean.setPackage("com.com.chentian610");//多个包可使用英文逗号隔开
         return annotationBean;
     }
 

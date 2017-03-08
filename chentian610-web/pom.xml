@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>chentian610-parent</artifactId>
-        <groupId>com.chentian610</groupId>
+        <artifactId>com.chentian610-parent</artifactId>
+        <groupId>com.com.chentian610</groupId>
         <version>3.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>war</packaging>
-    <artifactId>chentian610-web</artifactId>
+    <artifactId>com.chentian610-web</artifactId>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
@@ -89,26 +89,52 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.chentian610</groupId>
-            <artifactId>chentian610-common</artifactId>
+            <groupId>com.com.chentian610</groupId>
+            <artifactId>com.chentian610-common</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.chentian610</groupId>
-            <artifactId>chentian610-framework</artifactId>
+            <groupId>com.com.chentian610</groupId>
+            <artifactId>com.chentian610-framework</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.chentian610</groupId>
-            <artifactId>chentian610-user-api</artifactId>
+            <groupId>com.com.chentian610</groupId>
+            <artifactId>com.chentian610-user-api</artifactId>
             <version>3.0.0</version>
         </dependency>
-        <!-- Provided (for embedded war support) -->
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
+        <!-- zookeeper start -->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <!--<groupId>com.github.sgroschupf</groupId>-->
+            <!--<artifactId>zkclient</artifactId>-->
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- zookeeper end -->
     </dependencies>
 
 </project>

@@ -6,7 +6,7 @@
  * <p>Date:2010-12-27</p>
  * <p>Modify:</p>
  * <p>Bug:</p>
- * @author chentian610
+ * @author com.chentian610
  * @version 1.0
  */
 package com.chentian610.framework;

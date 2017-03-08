@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 /**
- * Created by chentian610.
+ * Created by com.chentian610.
  */
 @Configuration
 @PropertySource("classpath:dubbo.properties")
@@ -39,7 +39,7 @@ public class DubboConfig {
     @Bean
     public static AnnotationBean annotationBean() {
         AnnotationBean annotationBean = new AnnotationBean();
-        annotationBean.setPackage("com.chentian610");//多个包可使用英文逗号隔开
+        annotationBean.setPackage("com.com.chentian610");//多个包可使用英文逗号隔开
         return annotationBean;
     }
 

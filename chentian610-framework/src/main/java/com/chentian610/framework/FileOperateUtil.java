@@ -1,6 +1,6 @@
 /**
  *
- * @author chentian610
+ * @author com.chentian610
  * @date 2014-8-5 下午12:05:57
  */
 package com.chentian610.framework;
@@ -41,13 +41,13 @@ import com.drew.metadata.exif.ExifSubIFDDirectory;
 
 /**
  * 
- * @author chentian610
+ * @author com.chentian610
  * @date 2014-8-5 下午12:05:57
  */
 public class FileOperateUtil {
 	/**
 	 * 上传文件
-	 * @author chentian610
+	 * @author com.chentian610
 	 * @param request http请求
 	 * @param field 字段，
 	 * @param saveDir 保存的路径

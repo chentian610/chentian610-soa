@@ -6,7 +6,7 @@
 		<artifactId>chentian610-parent</artifactId>
 		<version>3.0.0</version>
 	</parent>
-	<artifactId>chentian610-getui</artifactId>
+	<artifactId>com.chentian610-getui</artifactId>
 	<packaging>pom</packaging>
 	<name>${project.artifactId}</name>
 	<description>推送模块</description>

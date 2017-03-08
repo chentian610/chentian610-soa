@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * 用来统一封装异常信息，可以在产生异常的时候同时将错误信息进行封装成需要的格式：比如JSON、XML等
- * @author chentian610
+ * @author com.chentian610
  */
 public class BaseController {
 	private static Log logger = LogFactory.getLog(BaseController.class);

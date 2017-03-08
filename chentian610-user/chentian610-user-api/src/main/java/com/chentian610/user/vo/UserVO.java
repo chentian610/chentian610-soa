@@ -1,12 +1,24 @@
 package com.chentian610.user.vo;
 
-public class UserVO {
+import com.chentian610.common.vo.BaseVO;
+
+public class UserVO extends BaseVO {
 
 
 	/**
 	* 用户ID，自增长
 	*/
 	private Integer user_id;
+
+	@Override
+	public String toString() {
+		return "UserVO{" +
+				"user_id=" + user_id +
+				", user_name='" + user_name + '\'' +
+				", pass_word='" + pass_word + '\'' +
+				", name_cn='" + name_cn + '\'' +
+				'}';
+	}
 
 	/**
 	* 账户

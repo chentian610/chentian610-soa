@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * 返回数据过滤的切面处理
  * 注意：如果业务代码返回null，那么不会进入到这个切面
- * @author chentian610
+ * @author com.chentian610
  */
 @ControllerAdvice(annotations = Controller.class)
 public class MyResponseBodyAdvice implements ResponseBodyAdvice<Object> {
