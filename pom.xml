@@ -26,7 +26,7 @@
 		<module>chentian610-web2</module>
         <module>chentian610-rocketMQ</module>
 		<module>chentian610-oauth2</module>
-        <module>chentian610-nettyRabbiMQ</module>
+        <module>chentian610-nettyRabbitMQ</module>
     </modules>
 	<properties>
 		<!-- Common libs -->

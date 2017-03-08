@@ -9,8 +9,8 @@
 
 	<name>${project.artifactId}</name>
 	<parent>
-		<groupId>com.com.chentian610</groupId>
-		<artifactId>com.chentian610-getui</artifactId>
+		<groupId>com.chentian610</groupId>
+		<artifactId>chentian610-getui</artifactId>
 		<version>3.0.0</version>
 	</parent>
 	<properties>

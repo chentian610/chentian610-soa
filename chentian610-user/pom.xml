@@ -2,16 +2,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.com.chentian610</groupId>
-        <artifactId>com.chentian610-parent</artifactId>
+        <groupId>com.chentian610</groupId>
+        <artifactId>chentian610-parent</artifactId>
         <version>3.0.0</version>
     </parent>
-    <artifactId>com.chentian610-user</artifactId>
+    <artifactId>chentian610-user</artifactId>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>用户模块</description>
     <modules>
-        <module>com.chentian610-user-api</module>
-        <module>com.chentian610-user-service</module>
+        <module>chentian610-user-api</module>
+        <module>chentian610-user-service</module>
     </modules>
 </project>

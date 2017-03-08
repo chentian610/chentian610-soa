@@ -9,8 +9,8 @@
   <url>http://maven.apache.org</url>
 
   <parent>
-    <groupId>com.com.chentian610</groupId>
-    <artifactId>com.chentian610-parent</artifactId>
+    <groupId>com.chentian610</groupId>
+    <artifactId>chentian610-parent</artifactId>
     <version>3.0.0</version>
   </parent>
 
