@@ -9,7 +9,7 @@ import java.util.HashMap;
 /**
  * 用于存放分页参数、用户信息
  * 采用ThreadLocal是为了使每个线程保存一份属于自己的数据。
- * @author chentian610
+ * @author com.chentian610
  * */
 public class ActionUtil {
 

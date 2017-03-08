@@ -1,8 +1,17 @@
 package com.chentian610.common.vo;
 
+import com.chentian610.common.util.ActionParam;
+import com.chentian610.common.util.ActionUtil;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class BaseVO {
+public class BaseVO implements Serializable {
+
+    public BaseVO(){
+        System.out.println("初始化BaseVO:"+this.actionParam.getSysTime());
+        this.actionParam = ActionUtil.getActionParam();
+    }
 	
 	/**
 	* APP动态添加的SQL
@@ -54,8 +63,18 @@ public class BaseVO {
 	* 版本号
 	*/
 	private Integer version;
-	
-	public Integer getCreate_by() {
+
+    private ActionParam actionParam;
+
+    public ActionParam getActionParam() {
+        return actionParam;
+    }
+
+    public void setActionParam(ActionParam actionParam) {
+        this.actionParam = actionParam;
+    }
+
+    public Integer getCreate_by() {
 		return create_by;
 	}
 

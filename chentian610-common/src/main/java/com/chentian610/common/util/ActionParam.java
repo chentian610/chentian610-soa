@@ -1,10 +1,11 @@
 package com.chentian610.common.util;
 
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 
-public class ActionParam {
+public class ActionParam  implements Serializable {
 	/**
 	 * 分页开始序号
 	 */

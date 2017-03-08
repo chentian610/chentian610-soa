@@ -39,7 +39,7 @@ public class StringUtil {
 	
 	/**
 	 * 将字符串截取前面几个数字，多出来的部分用...代替
-	 * @author chentian610
+	 * @author com.chentian610
 	 * @return 截取后的字符串
 	 */
 	public static String subString(String str, int length) {

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 普通类调用Spring bean对象：
- * @author chentian610
+ * @author com.chentian610
  */
 
 @Component
