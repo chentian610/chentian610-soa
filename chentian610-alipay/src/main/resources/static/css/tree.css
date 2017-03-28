@@ -1,0 +1,7 @@
+﻿@charset "utf-8";
+
+.left {
+	float: left;
+    width: 400px;
+    top:800px;
+}
