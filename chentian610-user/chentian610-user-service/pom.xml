@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>com.chentian610-user-service</artifactId>
+    <artifactId>chentian610-user-service</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.chentian610</groupId>

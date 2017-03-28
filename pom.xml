@@ -27,6 +27,8 @@
         <module>chentian610-rocketMQ</module>
 		<module>chentian610-oauth2</module>
         <module>chentian610-nettyRabbitMQ</module>
+		<module>chentian610-alipay</module>
+        <module>chentian610-nettySocketIO</module>
     </modules>
 	<properties>
 		<!-- Common libs -->

@@ -21,7 +21,7 @@
         <artifactId>chentian610-getui</artifactId>
         <version>3.0.0</version>
     </parent>
-    <artifactId>com.chentian610-getui-api</artifactId>
+    <artifactId>chentian610-getui-api</artifactId>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>个推API</description>
@@ -30,8 +30,8 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.com.chentian610</groupId>
-            <artifactId>com.chentian610-framework</artifactId>
+            <groupId>com.chentian610</groupId>
+            <artifactId>chentian610-framework</artifactId>
             <version>${parent.version}</version>
         </dependency>
     </dependencies>

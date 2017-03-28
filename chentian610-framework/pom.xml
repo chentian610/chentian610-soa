@@ -6,7 +6,7 @@
         <artifactId>chentian610-parent</artifactId>
         <version>3.0.0</version>
     </parent>
-    <artifactId>com.chentian610-framework</artifactId>
+    <artifactId>chentian610-framework</artifactId>
     <name>${project.artifactId}</name>
     <description>The common module of dubbo project</description>
     <properties>
@@ -14,8 +14,8 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.com.chentian610</groupId>
-            <artifactId>com.chentian610-common</artifactId>
+            <groupId>com.chentian610</groupId>
+            <artifactId>chentian610-common</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 

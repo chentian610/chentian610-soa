@@ -108,7 +108,8 @@ public class NettyServer {
     public void process(String message) {
         System.out.println("process message.error  : " + message);
         ChannelGroup group = new DefaultChannelGroup(ImmediateEventExecutor.INSTANCE);
-        HttpRequestHandler.channels.writeAndFlush(new TextWebSocketFrame(message));
+        ChannelGroup channels = HttpRequestHandler.channels;
+        channels.writeAndFlush(new TextWebSocketFrame(message));
     }
 
 

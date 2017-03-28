@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.com.chentian610</groupId>
-	<artifactId>com.chentian610-getui-service</artifactId>
+	<groupId>com.chentian610</groupId>
+	<artifactId>chentian610-getui-service</artifactId>
 	<packaging>war</packaging>
 
 	<name>${project.artifactId}</name>
@@ -180,18 +180,18 @@
 		</dependency>
 		<!--以下是课道自己模块-->
 		<dependency>
-			<groupId>com.com.chentian610</groupId>
-			<artifactId>com.chentian610-getui-api</artifactId>
+			<groupId>com.chentian610</groupId>
+			<artifactId>chentian610-getui-api</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.com.chentian610</groupId>
-			<artifactId>com.chentian610-common</artifactId>
+			<groupId>com.chentian610</groupId>
+			<artifactId>chentian610-common</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.com.chentian610</groupId>
-			<artifactId>com.chentian610-framework</artifactId>
+			<groupId>com.chentian610</groupId>
+			<artifactId>chentian610-framework</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 	</dependencies>

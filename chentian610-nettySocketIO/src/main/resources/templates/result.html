@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/css/tree.css" />
+<link rel="stylesheet" type="text/css" href="/css/content.css" />
+<link rel="stylesheet" type="text/css" href="/css/title.css" />
+<title>需求／设计汇总</title>
+</head>
+<body ng-app='srtApp' ng-controller="srtController">
+
+	<h2 class="title">需求／设计汇总 <a href="javascript:void(0)" ng-click="addRequirement()">+</a></h2>
+	
+	<div class="left">
+		<ul ng-include="'navigation'" ng-init="wrappers=$scope.wrappers"></ul>
+	</div>
+
+	<div ng-show="addModule" class='content'>
+		<label for="am_name">项目名称: </label>
+		<textarea rows="1" cols="50" id="am_name" name="am_name" ng-model="addingModule.name"></textarea>
+		<br/>
+		<label for="am_status">项目状态: </label>
+		<textarea rows="1" cols="50" id="am_status" name="am_status" ng-model="addingModule.status"></textarea>
+		<br/>
+		<label for="am_description">项目描述: </label>
+		<textarea rows="7" cols="80" id="am_description" name="am_description" ng-model="addingModule.description"></textarea>
+		<br/>
+		<button onclick="javascript:void(0)" ng-click="submitModule()">提交</button>
+		<button onclick="javascript:void(0)" ng-click="quitAdd()">取消</button>
+	</div>
+	<div ng-hide='addModule' ng-if="selectedWrapper" class="content">
+		<h2>
+			项目名称：{{selectedWrapper.name}}<button onclick="javascript:void(0)" ng-click="editWrapper('ew_name')">编辑</button>
+			<div ng-show="ewAttrs['ew_name']">
+				<textarea rows="1" cols="50" ng-model="selectedWrapper.name"></textarea>
+				<button onclick="javascript:void(0)" ng-click="saveWrapper(selectedWrapper)">保存</button>
+				<button onclick="javascript:void(0)" ng-click="editWrapper('ew_name')">取消</button>
+			</div>
+		</h2>
+		<h3>当前状态:
+			{{selectedWrapper.status}}<button onclick="javascript:void(0)" ng-click="editWrapper('ew_status')">编辑</button>
+			<div ng-show="ewAttrs['ew_status']">
+				<textarea rows="1" cols="50" ng-model="selectedWrapper.status"></textarea>
+				<button onclick="javascript:void(0)" ng-click="saveWrapper(selectedWrapper)">保存</button>
+				<button onclick="javascript:void(0)" ng-click="editWrapper('ew_status')">取消</button>
+			</div>
+		</h3>
+		<h3>项目描述：</h3>
+		<pre>{{selectedWrapper.description}}</pre>
+		<button onclick="javascript:void(0)" ng-click="editWrapper('ew_description')">编辑</button>
+		<div ng-show="ewAttrs['ew_description']">
+			<textarea rows="7" cols="80" ng-model="selectedWrapper.description"></textarea>
+			<button onclick="javascript:void(0)" ng-click="saveWrapper(selectedWrapper)">保存</button>
+			<button onclick="javascript:void(0)" ng-click="editWrapper('ew_description')">取消</button>
+		</div>
+		<div>
+			<h3>项目文件：</h3>
+			<input id="uploadFiles" ng-hide="true" type="file" nv-file-select="" uploader="uploader" multiple="true"/> 
+			<button onclick="document.getElementById('uploadFiles').click();">浏览文件</button>
+			<ul ng-model="addedItems">
+				<li ng-repeat="addedItem in addedItems">{{addedItem.file.name}}</li>
+			</ul>
+			<button onclick="javascript:void(0)" ng-click="uploadAllFiles()">上传</button> <button onclick="javascript:void(0)" ng-click="cancelAllFiles()">重置</button>
+			<div ng-if="selectedWrapper.attachmentPathList" ng-repeat="path in selectedWrapper.attachmentPathList">
+				<!-- <a ng-href="'/downloadFile?id='+selectedWrapper.id+'&amp;name='+path">{{getNameOfPath(path)}}</a> <a href="javascript:void(0)" ng-click="removeFile(path)">-</a> -->
+				<a target="_self" href="{{'/downloadFile?id='+selectedWrapper.id+'&amp;name='+path}}">{{getNameOfPath(path)}}</a> <a href="javascript:void(0)" ng-click="removeFile(path)">-</a>
+			</div>
+		</div>
+	</div>
+	<script src="/js/angular.js"></script>
+	<script src="/js/angular-file-upload.js"></script>
+	<script src="/js/srtApp.js" />
+	<script id="navigation" type="text/ng-template">
+        <li ng-repeat="wrapper in wrappers">
+            <a href="javascript:void(0)" ng-click="wrapperFocused(wrapper)">{{wrapper.name}}</a> <a href="javascript:void(0)" ng-click="addRequirement(wrapper)">+</a> <a href="javascript:void(0)" ng-click="removeRequirement(wrapper)">-</a>
+            <ul ng-if="wrapper.subModuleWrapperList.length" ng-include="'navigation'" ng-show="wrapper.showChildren" ng-init="wrappers=wrapper.subModuleWrapperList"></ul>
+        </li>
+    </script>
+
+</body>
+</html>
