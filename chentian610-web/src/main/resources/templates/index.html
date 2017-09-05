@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout}">
 
 <head>
-    <title>2 Hello Spring Boot!</title>
+    <title>Hello Spring Boot!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/css/bootstrap.min.css"
           th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}"
@@ -46,12 +47,11 @@
         </p>
     </div>
     <div>
-        <h1>1Spring Actuator2</h1>
+        <h1>Spring Actuator</h1>
         <p>
             Actuator endpoints allow you to monitor and interact with your application.
             Spring Boot includes a number of built-in endpoints and you can also add your own.
         </p>
-        <img th:src="${src}" title="eee fuck you"/>
         <table>
             <thead>
                 <tr>
@@ -60,6 +60,14 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>
+                        <p><a href="#" th:href="@{loggers}">loggers</a></p>
+                    </td>
+                    <td>
+                        <p>Displays loggers levels</p>
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <p><a href="#" th:href="@{autoconfig}">autoconfig</a></p>

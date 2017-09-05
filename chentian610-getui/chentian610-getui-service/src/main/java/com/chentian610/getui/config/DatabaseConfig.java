@@ -80,12 +80,13 @@ public class DatabaseConfig {
         dataSource.setUsername(username);
         dataSource.setPassword(password);
 
+        dataSource.setInitialSize(2);
         dataSource.setMinIdle(minIdle);
         dataSource.setMaxActive(maxActive);
         dataSource.setMaxWait(maxWait);
-        dataSource.setValidationQuery(validationQuery);
-        dataSource.setTestOnBorrow(testOnBorrow);
-        dataSource.setTestOnReturn(testOnReturn);
+//        dataSource.setValidationQuery(validationQuery);
+//        dataSource.setTestOnBorrow(testOnBorrow);
+//        dataSource.setTestOnReturn(testOnReturn);
         return dataSource;
     }
 
@@ -99,8 +100,8 @@ public class DatabaseConfig {
         logger.info("chentian610MyBatis初始化开始.................");
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setTypeAliasesPackage("com.com.chentian610");
-        Resource[] resources = new PathMatchingResourcePatternResolver().getResources("classpath*:com/com.chentian610/**/mapper/*.xml");
+        sessionFactory.setTypeAliasesPackage("com.chentian610");
+        Resource[] resources = new PathMatchingResourcePatternResolver().getResources("classpath*:com/chentian610/**/mapper/*.xml");
         logger.info("chentian610MyBatis成功加载Mapper文件数量："+resources.length);
         sessionFactory.setMapperLocations(resources);
         return sessionFactory.getObject();

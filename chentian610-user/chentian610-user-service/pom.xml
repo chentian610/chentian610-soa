@@ -144,6 +144,11 @@
             <groupId>de.javakaffee</groupId>
             <artifactId>kryo-serializers</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.chentian610</groupId>
+            <artifactId>chentian610-getui-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
     </dependencies>
 
 

@@ -1,4 +1,4 @@
-package com.chentian610.user.config;
+package com.chentian610.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
