@@ -131,8 +131,8 @@ public class DatabaseConfig {
         logger.info("课道平台MyBatis初始化开始.................");
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-//        sessionFactory.setConfigLocation(new ClassPathResource("mybatisframework.xml"));
-        sessionFactory.setTypeAliasesPackage("com.ninesky");
+//        sessionFactory.setConfigLocation(new ClassPathResource("mybatisframework.xml"));//也可以在这里配置xml方式
+        sessionFactory.setTypeAliasesPackage("com.chentian610");
         Resource[] resources = new PathMatchingResourcePatternResolver().getResources("classpath*:com/chentian610/**/config/*.xml");
         logger.info("课道平台MyBatis成功加载Mapper文件数量："+resources.length);
         sessionFactory.setMapperLocations(resources);

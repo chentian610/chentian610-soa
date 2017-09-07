@@ -30,9 +30,14 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.chentian610</groupId>
-            <artifactId>chentian610-framework</artifactId>
-            <version>${parent.version}</version>
+            <groupId>org.mengyun</groupId>
+            <artifactId>tcc-transaction-dubbo</artifactId>
+            <version>1.2.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mengyun</groupId>
+            <artifactId>tcc-transaction-spring</artifactId>
+            <version>1.2.3.2</version>
         </dependency>
     </dependencies>
 </project>

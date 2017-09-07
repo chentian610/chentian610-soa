@@ -81,7 +81,7 @@ public class TccDatabaseConfig {
 
 
     public DataSource dataSource() {
-        logger.info("课道平台tcc数据库连接池初始化开始：URL:"+dbUrl);
+        logger.info("tcc数据库连接池初始化开始：URL:"+dbUrl);
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(jdbcDriver);
         dataSource.setUrl(dbUrl);
@@ -100,6 +100,7 @@ public class TccDatabaseConfig {
 
     @Bean
     public DefaultRecoverConfig initDefaultRecoverConfig(){
+        logger.info("tcc事务补偿机制定时任务初始化配置开始......");
         DefaultRecoverConfig defaultRecoverConfig = new DefaultRecoverConfig();
         defaultRecoverConfig.setMaxRetryCount(30);
         defaultRecoverConfig.setRecoverDuration(60);
@@ -112,6 +113,7 @@ public class TccDatabaseConfig {
 
     @Bean
     public SpringJdbcTransactionRepository initSpringJdbcTransactionRepository() throws Exception {
+        logger.info("tcc事务配置bean初始化开始......");
         SpringJdbcTransactionRepository springJdbcTransactionRepository =  new SpringJdbcTransactionRepository();
         springJdbcTransactionRepository.setDataSource(dataSource());
         springJdbcTransactionRepository.setDomain(tccDomain);

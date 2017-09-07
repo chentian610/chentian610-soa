@@ -245,6 +245,11 @@
             <artifactId>chentian610-tcc-capital-api</artifactId>
             <version>3.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.chentian610</groupId>
+            <artifactId>chentian610-framework</artifactId>
+            <version>3.0.0</version>
+        </dependency>
         <!-- Provided (for embedded war support) -->
         <!--<dependency>-->
         <!--<groupId>org.springframework.boot</groupId>-->
