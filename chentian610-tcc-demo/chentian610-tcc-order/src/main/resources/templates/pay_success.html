@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>支付结果</title>
+</head>
+<body>
+<div class="page">
+    <p>支付状态:<b th:text="${payResult}"></b> </p>
+    <p th:text="'名称:'+ ${product.productName}"></p>
+    <p th:text="'价格:'+ ${product.price}+'元'"></p>
+
+    <p th:text="'剩余可用账户余额:'+${capitalAmount}+'元'"></p>
+    <p th:text="'剩余可用红包余额:'+${redPacketAmount}+'元'"></p>
+</div>
+</body>
+</html>

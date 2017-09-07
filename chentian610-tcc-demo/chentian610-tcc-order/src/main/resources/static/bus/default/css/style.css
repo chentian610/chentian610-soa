@@ -1,0 +1,1023 @@
+html,body{height: 100%}
+body{
+	background-color: #f5f5f5;
+}
+a{color: #9e9e9e;}
+a:focus{text-decoration: none;}
+nav{
+	float: left;
+	width: 18%;
+	height: 100%;
+	background-color: #2e404f;
+	color: #FFF;
+	overflow: auto;
+}
+nav a{
+	color: #B0BAC9;
+}
+nav a:hover,nav a:focus{
+	color: #FFF;
+	text-decoration: none;
+}
+.nav-top{
+	overflow: hidden;
+	text-align: center;
+	padding: 20px 0;
+}
+.nav-top img.logo{
+	display: block;
+	margin: 0 auto;
+	border-radius: 50%;
+}
+.nav-top h1{
+	font-size: 20px;
+	font-weight: normal;
+	margin: 10px 0;
+}
+ul.side-menu{
+	padding: 0;
+}
+ul.side-menu li{
+	list-style: none;
+	line-height: 40px;
+	transition: background-color 0.4s;
+}
+ul.side-menu i{
+	float: left;
+	font-size:16px;
+	margin: 10px 5px 0 18px;
+}
+ul.side-menu span.fa{
+	float: right;
+	margin: 10px 16px 0 0;
+	transition: transform 0.4s;
+}
+ul.side-menu li a{
+	display: block;
+}
+ul.side-menu ul{
+	padding-left: 50px;
+	overflow: hidden;
+	height: 0;
+	transition: height 0.4s;
+}
+ul.side-menu>li.on{
+	background-color: #36495a;
+}
+ul.side-menu>li.on span.fa{
+	transform: rotate(-90deg);
+}
+.wrap{
+	height: 100%;
+	background-color: #f5f5f5;
+	overflow: hidden;
+}
+.user-top{
+	padding: 30px 20px 20px;
+	overflow: hidden;
+	line-height: 32px;
+	color: #9b9b9b;
+}
+.user-top a{
+	color: #9b9b9b;
+}
+.user-name{
+	float: left;
+	margin-right: 15px;
+}
+.user-name img{
+	float: left;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	margin-right: 5px;
+}
+.user-do{
+	float: left;
+	margin-right: 15px;
+}
+.user-do i{
+	vertical-align: middle;
+	font-size: 24px;
+	color: #1cbb9e;
+	margin-right: 5px;
+}
+.page-nav{
+	position: relative;
+	overflow: hidden;
+	height: 38px;
+	line-height: 38px;
+	background-color: #fff;
+	border-top:1px solid #DDD;
+	border-bottom: 1px solid #DDD;
+	text-align: center;
+}
+.page-nav button{
+	position: absolute;
+	top:0;
+	border: 0;
+	width:40px;
+	height: 38px;
+	color: #a3a3a3;
+	background-color: #fff;
+	cursor: pointer;
+	z-index: 2;
+	outline: 0;
+}
+
+.page-nav button.scr-left{
+	left:0;
+	border-right: 1px solid #DDD;
+}
+.page-nav button.scr-right{
+	right: 0;
+	border-left: 1px solid #DDD;
+
+}
+.page-nav-cont{
+	width: 10000px;
+	height: 38px;
+	margin-left: 40px;
+}
+.page-nav-cont a{
+	float: left;
+	padding: 0 15px;
+	border-right: 1px solid #DDD;
+	color: #666;
+}
+.page-nav-cont i{
+	color: #d8d8d8;
+	margin-left: 5px;
+}
+.page-nav-cont a.active{
+	background-color: #36495a;
+	color: #fff;
+}
+.page-tabs-content{
+	float: left;
+	height: 38px;
+	overflow: hidden;
+}
+
+/**/
+.main{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.mainwrap{
+	padding: 20px;
+	overflow: hidden;
+	width: 850px;
+	margin: 0 auto;
+}
+/**/
+.invite-c{
+	width: 820px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.sel{
+	width: 100%;
+	line-height: 40px;
+	text-align: center;
+	overflow: hidden;
+}
+.sel a{
+	float: left;
+	width: 50%;
+	display: block;
+	background-color: #e9e9e9;
+	font-size: 20px;
+}
+.sel a.active{
+	background-color: #1cbb9e;
+	color: #fff;
+}
+.printer{
+	width: 600px;
+	margin: 45px auto;
+}
+.printer .btns{
+	width: 100%;
+	overflow: hidden;
+}
+.printer .btns a.btn{
+	float: right;
+	margin-left: 10px;
+}
+.printer .cont{
+	padding: 60px;
+	overflow: hidden;
+	border: 1px solid #DDD;
+	margin-top: 10px;
+	background-color: #fff;
+	color: #999;
+}
+.printer .cont h2{
+	color: #4b4b4b;
+	font-size: 24px;
+	text-align: center;
+}
+.printer .cont h2 img{
+	margin-right: 10px;
+}
+.printer .cont .c1{
+	min-height: 100px;
+	border: 1px solid #DDD;
+	padding: 5px 20px;
+	margin-top: 20px;
+	overflow: hidden;
+	line-height: 2;
+}
+.printer .cont h3{
+	text-align: center;
+	margin: 60px 0 30px;
+	font-size: 24px;
+	color: #4b4b4b;
+}
+.printer .cont .c2{
+	margin-left: 80px;
+}
+.printer .cont .c2 img{
+	display: block;
+	margin: 30px 90px;
+}
+.invite-msg{
+	overflow: hidden;
+	background: #fff;
+	padding: 30px 0;
+}
+.invite-msg .item{
+	padding: 5px 25px;
+	overflow: hidden;
+	line-height: 34px;
+}
+.invite-msg .item span.flabel{
+	float: left;
+	width: 4em;
+	text-align: right;
+}
+/**/
+.req-list .item{
+	float: left;
+	width: 50%;
+	height: auto;
+	overflow: hidden;
+	border-bottom: 1px solid #DDD;
+	padding: 20px 0;
+	background-color: #fff;
+}
+.req-list .item img.cover{
+	float: left;
+	width: 80px;
+	height: 80px;
+	margin-left: 20px;
+}
+.req-list .item .c{
+	padding-left: 120px; 
+}
+.req-list .item .c p{
+	padding: 0;
+	margin: 0 0 8px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.req-list p a{
+	color: #000;
+}
+.btn-req{
+	background-color: #1cbb9e;
+	color: #fff;
+	margin-left:3px;
+}
+/**/
+.req-form{
+	background-color: #fff;
+}
+.req-form .title{
+	padding: 10px 30px;
+	overflow: hidden;
+	border-bottom: 1px solid #DDD;
+}
+.req-form .title p{
+	float: left;
+	line-height: 34px;
+	margin: 0;
+}
+.r{
+ float: right;
+}
+.req-form .title .btn{
+	margin-left: 10px;
+}
+.req-form .ss{
+	padding: 10px 30px;
+	overflow: hidden;
+	border-bottom: 1px solid #DDD;
+}
+.req-form .ss h3{
+	font-size: 18px;
+}
+.req-form .ss .item{
+	width: 100%;
+	padding: 5px 0;
+	overflow: hidden;
+}
+.req-form .item img.logo{
+	vertical-align: bottom;
+}
+.req-form .item .tip{
+	color: #999;
+}
+.req-form .ctype1{
+	padding: 20px 0;
+	overflow: hidden;
+}
+.req-form .ctype1 label{
+	float: left;
+	text-align: center;
+	margin:0 25px 0 0;
+	position: relative;
+	color: #666;
+}
+.req-form .ctype1 label img{
+	display: block;
+	margin: 0 auto 5px;
+}
+.req-form .ctype1 label input{
+	position: absolute;
+	right: -10px;
+	top:0;
+	display: none;
+}
+.req-form .ctype1 label input:checked{
+	-webkit-appearance: none;
+	display: block;
+	width: 27px;
+	height: 27px;
+	background: url(../images/select.png) no-repeat 50% 50%;
+}
+.req-form .ctype1 label input:checked ~ span{
+	display: inline-block;
+	background-color: #00b494;
+	color: #fff;
+	width: 5em;
+	border-radius: 3px;
+}
+.req-form .ctype2{
+	padding: 20px 0;
+	overflow: hidden;
+}
+.req-form .ctype2 label{
+	float: left;
+	width: 120px;
+	height: 130px;
+	text-align: center;
+	position: relative;
+	color: #666;
+}
+.req-form .ctype2 label img{
+	display: block;
+	margin: 0 auto 10px;
+}
+.req-form .ctype2 label em{
+	position: absolute;
+	right: -1em;
+	top:0;
+	font-style: normal;
+}
+.req-form .ctype3{
+	padding: 20px 0;
+	overflow: hidden;
+}
+.req-form .ctype3 label{
+	float: left;
+	position: relative;
+	color: #666;
+	margin-right: 30px;
+}
+.req-form .ctype3 label img{
+	margin: 0 10px 0 0;
+}
+.req-form .ctype3 label input{
+	margin-right: 10px;
+}
+/**/
+.layout-dialog{
+	text-align: center;
+	border-radius: 10px!important;
+}
+.layout-dialog h3{
+	font-size: 24px;
+	color: #4a4a4a;
+	padding: 20px 0;
+	border-bottom: 1px solid #DDD;
+}
+.layout-dialog p{
+	padding: 20px 0;
+	color: #999;
+	font-size: 18px;
+}
+.layout-dialog .layui-layer-btn{
+	text-align: center;
+}
+.layout-dialog .layui-layer-btn a{
+	background-color: #1cbb9e!important;
+	color: #fff!important;
+	height: 32px;
+	line-height: 32px;
+	border: 0;
+}
+/**/
+.ftab{
+	background-color: #fff;
+	overflow: hidden;
+}
+.ftab-top{
+	padding: 10px 25px;
+	overflow: hidden;
+	border-bottom: 1px solid #DDD;
+}
+.ftab-top label{
+	float: left;
+	line-height: 34px;
+	font-size: 16px;
+}
+.ftab-top input.form-control{
+	padding-right: 25px;
+}
+.ftab-top button{
+	background: none;
+	border: 0;
+	position: absolute;
+	margin-left: -42px;
+	margin-top: 2px;
+	padding-top: 5px;
+}
+.ftab-cont{
+	padding: 25px;
+	overflow: hidden;
+}
+.ftab-cont table,.ftab-cont table th{
+	text-align: center;
+}
+.ftab-cont table th{
+	background-color: #f5f5f5;
+	line-height: 30px!important;
+}
+.ftab-cont table td{
+	line-height: 30px!important;
+}
+.ftab-cont .col-sm-3{
+	width: 160px;
+}
+.ftab-cont table tr.tr_do td{
+	border: 0;
+	text-align: left;
+}
+.ftab-cont table tr.cnew td{
+	border: 0;
+}
+.ftab-menu{
+	float: left;
+	width: 160px;
+	border-right: 1px solid #EEE;
+	padding: 20px 0 20px 20px;
+}
+.ftab-menu ul{
+	padding: 0;
+}
+.ftab-menu ul li{
+	padding-left: 15px;
+	list-style: none;
+	padding: 5px 0;
+	overflow: hidden;
+}
+.ftab-menu ul li a{
+	display: block;
+	font-size: 18px;
+	line-height: 2;
+	color: #4a4a4a;
+}
+.ftab-menu ul li a:before{
+	content: '';
+	display: inline-block;
+	width: 8px;
+	height: 20px;
+	background-color: #fff;
+	margin-right: 2px;
+	border-radius: 3px;
+	vertical-align: middle;
+}
+.ftab-menu ul li a.active:before{
+	background-color: #1cbb9e;
+}
+.ftab-r{
+	float: left;
+	width: 650px;
+	padding-left: 20px;
+	border-left: 1px solid #EEE;
+	margin-left: -1px;
+	overflow: visible;
+}
+.ftab-ct{
+	padding: 10px 0;
+	overflow: hidden;
+	text-align: right;
+}
+.ftab-bottom{
+	padding: 20px 0;
+	overflow: hidden;
+	text-align: center;
+}
+.ftab-bottom .pages{
+	float: right;
+}
+.ftab-bottom .ftab-btn{
+	float: left;
+}
+.pages a.btn{
+	float: left;
+	border-radius: 0;
+	margin-left: -1px;
+}
+.pages .page-jump{
+	float: right;
+	padding-left: 20px;
+}
+.pages .page-jump span{
+	float: left;
+	line-height: 30px;
+	padding: 0 5px;
+}
+.pages .page-jump input{
+	float: left;
+	height: 30px;
+	padding: 0;
+	text-align: center;
+}
+/**/
+.ftab-list{
+	width: 100%;
+	overflow: hidden;
+}
+.ftab-list .item{
+	padding: 0 25px;
+	overflow: hidden;
+	border-bottom: 1px solid #DDD;
+}
+.ftab-list .item .c{
+	float: left;
+	width: 680px;
+	height: 66px;
+	line-height: 34px;
+	padding: 16px 10px 16px 0;
+	border-right:1px solid #DDD;
+	overflow: hidden;
+}
+.ftab-list .item .c p{
+	float: left;
+	font-size: 18px;
+}
+.ftab-list .item a.r{
+	font-size: 24px;
+	padding-left: 20px;
+	margin-top: 16px;
+}
+.ftab-list .item .c.c2{
+	width: 100%;
+	border-right: 0;
+	padding-right: 0;
+}
+.ftab-bottom .form{
+	width: 100%;
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+.ftab-bottom .form button{
+	float: left;
+}
+.ftab-bottom .ctrl{
+	overflow: hidden;
+}
+.ftab-bottom .ctrl button{
+	width: 40%;
+}
+.ftab-top2{
+	border-bottom: 1px solid #DDD;
+	overflow: hidden;
+	margin-bottom: 20px;
+	width: 100%;
+	padding: 0 20px;
+	margin-left: -20px;
+	box-sizing: content-box;
+}
+.ftab-top2 p{
+	float: left;
+	line-height: 32px;
+}
+.btn-bdr{
+	width: 30px;
+	border-radius: 50%;
+	margin-left: 5px;
+}
+.btn-bdr i{
+	margin-left: -1px;
+	transform: rotate(90deg);
+}
+/**/
+.col-2{
+	float: left;
+	width: 50%;
+	height: 620px;
+	border-right: 1px solid #DDD;
+	border-bottom: 1px solid #DDD;
+	background: #fff;
+}
+.col-2 .ftab-cont{
+	height: 550px;
+}
+.ftab-col-r{
+	border-right: 0;
+}
+.ftab-btns{
+	text-align: center;
+}
+.col-2 table td{
+	padding: 2px!important;
+}
+.col-2 .ftab-bottom{
+	padding: 0;
+}
+.ftab-top h5{
+	text-align: center;
+	font-size: 20px;
+	height: 40px;
+	padding: 0;
+	margin: 0;
+}
+.ftab-top .col-sm-5{
+	height: 40px;
+}
+.ftab-sbtn{
+	float: left;
+	width: 100%;
+	padding: 30px 0;
+	overflow: hidden;
+	background-color: #fff;
+	text-align: center;
+}
+.ftab-sbtn a.btn{
+	width: 40%;
+}
+.ftab-col-t{
+	height: 750px;
+}
+.ftab-col-t .ftab-cont{
+	height: 680px;
+}
+.ftab-col-t .ftab-top{
+	height: 80px;
+}
+/**/
+.ftab-menu2{
+	width: 190px;
+}
+.ftab-menu ul li a span{
+	font-size: 12px;
+}
+.ftab-r2{
+	width: 590px;
+}
+.home-s h3{
+	font-size: 18px;
+	margin: 0 0 20px 0;
+}
+.home-c{
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.home-c img.cover{
+	float: left;
+	width: 200px;
+}
+.home-c .c{
+	padding-left: 220px;
+	color: #999;
+}
+.home-sbtn{
+	width: 100%;
+	overflow: hidden;
+	margin: 30px 0;
+}
+a.btn-disable,a.btn-disable:hover,a.btn-disable:focus{
+	background-color: #e9e9e9;
+	color: #999;
+	cursor: default;
+}
+.home-sbtn a{
+	width: 40%;
+}
+.home-d{
+	width: 100%;
+	overflow: hidden;
+	margin: 60px 0;
+}
+.home-d h3{
+	font-size: 25px;
+}
+.home-d .item{
+	width: 100%;
+	overflow: hidden;
+	padding: 15px 0;
+}
+.home-d .item span.num{
+	float: left;
+	width: 2.5em;
+	text-align: center;
+	font-size: 48px;
+	line-height: 120px;
+}
+.home-d .item img.cover{
+	float: left;
+	width: 120px;
+}
+.home-d .item .c{
+	float: left;
+	width: 230px;
+	margin-left: 10px;
+}
+.home-d .item .c input.form-control{
+	margin-bottom: 10px;
+}
+.home-d .item-ss{
+	width: 100%;
+	overflow: hidden;
+	padding: 20px 0 40px;
+	font-size: 48px;
+	text-indent: 3em;
+}
+.home-d .item-btn{
+	width: 100%;
+	overflow: hidden;
+	font-size: 48px;
+}
+.home-d .item-btn a.btn{
+	width: 120px;
+	margin-left: 120px;
+}
+/**/
+.pform{
+	overflow: hidden;
+	padding: 25px;
+	background-color: #fff;
+}
+.pform .item{
+	width: 100%;
+	overflow: hidden;
+	padding: 10px 0;
+}
+.pform .item img.cover{
+	float: left;
+	margin: 0 15px;
+}
+.pform .item img.cover + button{
+	margin-top: 60px;
+}
+.plist{
+	overflow: hidden;
+	padding: 25px 10px;
+	background-color: #fff;
+}
+.plist-top{
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 1px solid #DDD;
+	padding-bottom: 10px;
+}
+.plist-search{
+	position: relative;
+}
+.plist-search button,.plist-search button:focus{
+	position: absolute;
+	top:3px;
+	right: 16px;
+	border-color: transparent;
+	background: #fff;
+	border-radius: 3px;
+	color: #999;
+}
+.plist .col-sm-2{
+	padding-left: 0;
+}
+.plist-page{
+	float: right;
+}
+.plist-page a{
+	color: #999;
+}
+.plist-cont{
+	width: 100%;
+	overflow: hidden;
+}
+.plist-cont .item{
+	width: 100%;
+	overflow: hidden;
+	padding: 5px 15px;
+	border-bottom: 1px solid #DDD;
+	box-sizing: border-box;
+}
+.plist-cont .item a.btn{
+	margin-top: 8px;
+}
+.plist-cont .item .c{
+	padding-right: 150px;
+}
+.plist-cont .item .c p{
+	font-size: 18px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0 0 5px 0;
+}
+.plist-cont .item .c p a{
+	color: #4a4a4a;
+}
+.plist-cont .item .c span.i{
+	color: #999;
+}
+.plist-bottom{
+	padding: 25px 0;
+	overflow: hidden;
+}
+.plist-bottom .plist-btn{
+	float: left;
+}
+.plist-bottom .pages{
+	float: right; 
+}
+/**/
+.ftab-search{
+	position: relative;
+}
+.ftab-search button,.plist-search button:focus{
+	position: absolute;
+	top:1px;
+	right: 16px;
+	border-color: transparent;
+	background: #fff;
+	border-radius: 3px;
+	color: #999;
+}
+.ftab-btn2{
+	text-align: center;
+}
+/**/
+.appsuc{
+	padding: 25px 0;
+	overflow: hidden;
+	background-color: #fff;
+}
+.appsuc h2{
+	font-size: 20px;
+	color: #4a4a4a;
+	margin: 0 0 10px 0;
+	text-align: center;
+	font-weight: normal;
+}
+.appsuc h5{
+	font-size: 18px;
+	color: #999;
+	margin: 0 0 30px 0;
+	text-align: center;
+	font-weight: normal;
+}
+.appsuc .item{
+	padding: 15px 25px 50px;
+	overflow: hidden;
+	border: 1px solid #DDD;
+	margin: 0 10px -1px;
+}
+.appsuc .item h3{
+	font-size: 20px;
+	font-weight: normal;
+}
+.appsuc .item p{
+	font-size: 18px;
+	padding-left: 20px;
+	color: #999;
+}
+.appsuc .item a.btn{
+	margin-left: 20px;
+}
+.appb{
+	padding: 60px 10px;
+	overflow: hidden;
+}
+.appb label{
+	color: #999;
+	margin: 0 30px;
+}
+.accm{
+	padding: 20px;
+	overflow: hidden;
+}
+.accm .item{
+	padding: 10px 20px;
+	border:1px solid #DDD;
+	overflow: hidden;
+	font-size: 18px;
+	margin-bottom: -1px;
+	background-color: #fff;
+}
+.appset{
+	width: 100%;
+	overflow: hidden;
+	padding-bottom: 40px;
+}
+.appset h3{
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 20px;
+}
+.appset .item{
+	overflow: hidden;
+	padding: 5px 0;
+}
+.appset a.col-sm-2{
+	margin-top: 10px;
+}
+/**/
+table td.tjob{
+	max-width: 6em;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+table td.tjob a.btn{
+	max-width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.dialog-sf{
+	width: 820px;
+	height: 450px !important;
+	overflow-y: scorll;
+	background-color: #fff;
+	border: 1px solid #DDD;
+	display: none;
+}
+.dialog-sf .dialog-top{
+	padding: 5px 10px;
+	overflow: hidden;
+	background-color: #f6f6f6;
+}
+.dialog-sf .dialog-top a.close{
+	margin-top: 5px;
+}
+.dialog-sf .dialog-cont label{
+	display: block;
+	padding: 5px;
+}
+.dialog-sf .dialog-cont label input{
+	margin-right: 5px;
+}
+.dialog-sf .dialog-btn{
+	text-align: center;
+	padding-bottom: 20px;
+	overflow: hidden;
+}
+.dialog-sf .dialog-btn a.btn{
+	margin: 0 5px;
+}
+/**/
+.table-inset{width: 100%}
+.table-inset td{
+	padding: 8px;
+	border-right: 1px solid #DDD;
+}
+.table-inset td:last-child{
+	border: 0;
+}
+tr.tr_do .item{
+	width: 100%;
+	padding: 5px 0;
+	overflow: hidden;
+	margin-left: 50px;
+}
+
+
+/* 2016.05.19 */
+.btn_red{background-color: #ff6666;}
+.btn_s{background-color: rgb(46, 64, 79);border-radius:0;color: #fff!important;display: inline-block;height: 40px;width: 150px;line-height: 28px;}
+.btn_s:hover{color:#fff;}
+.dialog-btn1 a{border-radius:0;border-right:1px solid #ddd;color: #000;display: inline-block;height: 40px;width: 150px;line-height: 28px;}
+.dialog-sf .dialog-top{padding: 0;}
+.line{width:100%;background-color: rgb(46, 64, 79);height: 3px;}
+.dialog-sf .dialog-top a.close{margin-right: 8px;margin-top: 8px;}
+.dialog-btn1{display: inline-block;}
+.dialog-cont{display: none;}

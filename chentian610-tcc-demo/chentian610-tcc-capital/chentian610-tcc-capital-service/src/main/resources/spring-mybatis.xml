@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+		xmlns:task="http://www.springframework.org/schema/task"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns="http://www.springframework.org/schema/beans"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       	
+       	http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.1.xsd
+       ">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.ninesky" />
+	<!-- 开启定时任务 -->
+	<task:annotation-driven /> 
+
+	<context:property-placeholder location="classpath:jdbc.properties" ignore-unresolvable="true"/>
+	<context:property-placeholder location="classpath:redis.properties" ignore-unresolvable="true"/>
+
+	<!-- spring启动后，自动执行 -->
+	<bean class="com.ninesky.util.updateDBUtil"  init-method="SQLUpdate"/>
+	
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<property name="jdbcUrl" value="${jdbc.databaseURL}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="initialPoolSize" value="2" />
+		<property name="maxIdleTime" value="30" />
+		<property name="maxPoolSize" value="100" />
+		<property name="minPoolSize" value="2" />
+		<property name="maxStatements" value="200" />
+	</bean>
+
+	<!--以下是将Mybatis注入到通用Dao中 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatisframework.xml" />
+		<property name="mapperLocations"
+			value="classpath*:com/chentian610/capital/config/*.xml" />
+	</bean>
+	<!--ibatis升级到mybatis后，sqlMapClient也升级到 SqlSessionTemplate CTH -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- JDBC事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+  	<!-- 配置事务特性 -->
+  	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+   	 <tx:attributes>
+        <tx:method name="*" propagation="REQUIRED" isolation="REPEATABLE_READ" rollback-for="RuntimeException"/>
+    </tx:attributes>
+  </tx:advice> 
+
+	<aop:config>
+	       <aop:pointcut id="txPointcut" expression="execution(* com.chentian610.*.service.*.*(..))" />
+	       <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+	</aop:config>
+
+</beans>

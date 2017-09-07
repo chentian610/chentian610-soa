@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>商品列表</title>
+</head>
+<body>
+<div class="page">
+    <div class="bg-f">
+        <ul class="list">
+            <li class="list-item"  th:each="product:${products}">
+               <p th:object="${product}"><span th:text="*{productName}+'  '+*{price}"></span>
+                   <a th:href="'/user/'+${userId}+'/shop/'+${shopId}+'/product/'+*{productId}+'/confirm'">购买</a></p>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

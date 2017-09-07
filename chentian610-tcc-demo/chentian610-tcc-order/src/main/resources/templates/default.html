@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="shortcut icon" type="image/x-icon" href="" media="screen" id="link_shortcut_logo"/>
+	<link rel="Bookmar" href="" id="link_bookmar_logo"/>
+	<title th:text="${school_name}+'，管理后台'">Lezhi</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/plugins/css/font-awesome.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/bus/default/css/style.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/plugins/css/toastr.min.css}"/>
+	<style type="text/css" media="print">
+		.invite-c{width: 100%;}
+		.sel,.btns{display: none}
+	</style>
+</head>
+<body>
+	<!--Navigation-->
+	<nav>
+		<div class="nav-top" id="LoadTheSchoolTitle">
+		</div>
+		<ul class="side-menu" id="sideMenu">
+
+		</ul>
+	</nav>
+
+	<!--Wrapper-->
+	<div class="wrap" id="wrapMenu">
+		
+	</div>
+	<script type="text/javascript" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/common/mycontabs.js}"></script>
+	<script type="text/javascript" th:src="@{/common/common.js}"></script>
+	<script type="text/javascript" th:src="@{/common/myajax.js}"></script>
+	<script type="text/javascript" th:src="@{/plugins/js/jquery.metisMenu.js}"></script>
+	<script type="text/javascript" th:src="@{/plugins/js/jquery.slimscroll.min.js}"></script>
+	<script type="text/javascript" th:src="@{/plugins/js/layer.min.js}"></script>
+	<script type="text/javascript" th:src="@{/bus/default/js/default.js}"></script>
+	<script type="text/javascript" th:inline="javascript">
+		$(function(){
+			var userMap = [[${user}]];
+			window.token = userMap.token;
+		});
+		window.user = [[${user}]];
+		var app_pic_url = localStorage.getItem('logo');
+		var school_name = localStorage.getItem('school_name');
+		var head_url = localStorage.getItem('head_url');
+		$('#link_shortcut_logo').attr('href',app_pic_url);
+		$('#link_bookmar_logo').attr('href',app_pic_url);
+		$('#LoadTheSchoolTitle').append('<img src="'+app_pic_url+'" alt="" class="logo" style="width: 50px;height: 50px"/><h1>'+school_name+'</h1>');
+		initMenuList();
+	</script>
+</body>
+</html>
