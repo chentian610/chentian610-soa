@@ -21,7 +21,7 @@ import java.util.*;
  * Created by jeff on 15/10/23.
  */
 @Order(1)
-@ControllerAdvice(basePackages = "com.chentian610.classtao")
+@ControllerAdvice(basePackages = "com.chentian610")
 public class MyRequestBodyAdvice implements RequestBodyAdvice {
 	protected static Log logger = LogFactory.getLog(RequestInterceptor.class);
 

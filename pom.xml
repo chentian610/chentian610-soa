@@ -31,6 +31,7 @@
         <module>chentian610-nettySocketIO</module>
 		<module>chentian610-thymeleaf</module>
 		<module>chentian610-web3</module>
+		<module>chentian610-tcc-demo</module>
     </modules>
 	<properties>
 		<!-- Common libs -->
