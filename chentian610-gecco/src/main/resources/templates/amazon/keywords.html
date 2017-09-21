@@ -37,20 +37,12 @@
                     </div>
                     <form class="form-inline">
                         <div class="form-group">
-                            <label >编号:</label>
-                            <input type="text" class="form-control" id="id-search" placeholder="编号:"/>
+                            <label >关键词:</label>
+                            <input type="text" class="form-control" id="id-search" placeholder="关键词:"/>
                         </div>
                         <div class="form-group">
-                            <label >名称:</label>
-                            <input type="text" class="form-control" id="name-search" placeholder="名称"/>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">状态:</label>
-                            <select id="status-search"  class="form-control">
-                                <option value="">全部</option>
-                                <option value="1">开启</option>
-                                <option value="0">关闭</option>
-                            </select>
+                            <label >品牌:</label>
+                            <input type="text" class="form-control" id="name-search" placeholder="品牌"/>
                         </div>
                         <button type="button"  onclick="search();" class="btn btn-primary">查询</button>
                         <button shiro:hasPermission="/keywords/add" type="button"  onclick="$('#addUser').modal();" class="btn btn-info" style="float: right; margin-right: 1px;">新增</button>
@@ -116,13 +108,9 @@
             <div class="modal-body">
                 <form id="userForm">
                     <div class="form-group">
-                        <label  class="control-label">用户名:</label>
-                        <input type="text" class="form-control" name="keyword" id="keyword" placeholder="请输入用户名"/>
+                        <label  class="control-label">关键词:</label>
+                        <input type="text" class="form-control" name="keyword" id="keyword" placeholder="关键词"/>
                         <span class="btn-action single glyphicons circle_question_mark" data-toggle="tooltip" data-placement="top" data-original-title="必填"><i></i></span>
-                    </div>
-                    <div class="form-group">
-                        <label  class="control-label">密码:</label>
-                        <input type="brand" class="form-control" id="brand" name="brand"  placeholder="请输入密码 6位以上"/>
                     </div>
                 </form>
             </div>
@@ -219,9 +207,8 @@
     function getQueryCondition(data){
         var param = {};
         //组装排序参数
-        param.id = $("#id-search").val();//查询条件
-        param.keyword = $("#name-search").val();//查询条件
-        param.enable = $("#status-search").val();//查询条件
+        param.keyword = $("#id-search").val();//查询条件
+        param.brand = $("#name-search").val();//查询条件
         //组装分页参数
         param.start = data.start;
         param.length = data.length;
