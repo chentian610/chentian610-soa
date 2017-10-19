@@ -4,26 +4,23 @@
 <mapper namespace="userMap">
   <!--插入表user-->
   <insert id="insertUser" parameterType="UserVO">
-    insert into user
+    insert into kt_sys_user
       (
       user_id,
       user_name,
-      pass_word,
-      name_cn
+      pass_word
       ) VALUES (
       #{user_id},
       #{user_name},
-      #{pass_word},
-      #{name_cn}
+      #{pass_word}
       )
   </insert>
   <!--更新表user-->
   <update id="updateUser" parameterType="UserVO">
-    update user
+    update kt_sys_user
       set user_id = #{user_id},
       user_name = #{user_name},
-      pass_word = #{pass_word},
-      name_cn = #{name_cn}
+      pass_word = #{pass_word}
   </update>
   <!--查询表user-->
   <select id="getUserList" parameterType="UserVO" resultType="UserVO">
@@ -31,23 +28,23 @@
       user_id as user_id,
       user_name as user_name,
       pass_word as pass_word,
-      name_cn as name_cn
-      from user
+      phone as phone
+      from kt_sys_user
       <where>
+        <if test="phone != null and phone != ''">
+          phone = #{phone}
+        </if>
         <if test="user_name != null and user_name != ''">
           user_name = #{user_name}
         </if>
         <if test="pass_word != null and pass_word != ''">
           and pass_word = #{pass_word}
         </if>
-        <if test="name_cn != null and name_cn != ''">
-          and name_cn like CONCAT('%',#{name_cn},'%'))
-        </if>
       </where>
    </select>
   <!--删除表user-->
   <delete id="deleteUser" parameterType="UserVO">
-      delete from user where id = #{id}
+      delete from kt_sys_user where user_id = #{user_id}
   </delete>
 </mapper>
 

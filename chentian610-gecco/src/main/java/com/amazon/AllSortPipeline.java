@@ -3,6 +3,7 @@ package com.amazon;
 import com.geccocrawler.gecco.annotation.PipelineName;
 import com.geccocrawler.gecco.pipeline.Pipeline;
 import com.geccocrawler.gecco.request.HttpRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
 public class AllSortPipeline implements Pipeline<AllSortAmazon> {
 	
 	public static List<HttpRequest> sortRequests = new ArrayList<HttpRequest>();
+	@Autowired
+
 
 	@Override
 	public void process(AllSortAmazon allSort) {
@@ -43,6 +46,7 @@ public class AllSortPipeline implements Pipeline<AllSortAmazon> {
 			}
 		}
 		System.out.println("第"+allSort.getPage()+"页Over");
+
 	}
 
 }

@@ -24,6 +24,8 @@ public class AllSortAmazon implements HtmlBean {
 	@RequestParameter("page")
 	private String page;//url中的{project}值
 
+	private String brand;//url中的{project}值
+
 	//家用电器
 	@Attr("data-asin")
 	@HtmlField(cssPath=".s-result-list-parent-container ul li")
@@ -81,6 +83,8 @@ public class AllSortAmazon implements HtmlBean {
 	}
 
 	public static void getAmazonRankByKeyWords(String keywords) {
+//		this.brand = brand;
+
 		//先获取分类列表
 		HttpGetRequest start = new HttpGetRequest("https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords="+keywords+"&page=1");
 		start.setCharset("GBK");
@@ -104,5 +108,13 @@ public class AllSortAmazon implements HtmlBean {
 				//单个爬虫每次抓取完一个请求后的间隔时间
 //				.interval(2000)
 				.start();
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 }

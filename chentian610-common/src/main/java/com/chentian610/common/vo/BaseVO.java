@@ -9,7 +9,7 @@ import java.util.Date;
 public class BaseVO implements Serializable {
 
     public BaseVO(){
-        System.out.println("初始化BaseVO:"+this.actionParam.getSysTime());
+//        System.out.println("初始化BaseVO:"+this.actionParam.getSysTime());
         this.actionParam = ActionUtil.getActionParam();
     }
 	

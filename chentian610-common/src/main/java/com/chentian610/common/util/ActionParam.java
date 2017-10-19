@@ -140,7 +140,7 @@ public class ActionParam  implements Serializable {
 	}
 
 	public HashMap<String, String> getParam() {
-		return param;
+		return (param==null)?new HashMap<String, String>():param;
 	}
 
 	public void setParam(HashMap<String, String> map) {

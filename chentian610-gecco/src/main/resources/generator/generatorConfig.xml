@@ -11,20 +11,20 @@
         <property name="endingDelimiter" value="`"/>
 
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.study.util.MyMapper"/>
+            <property name="mappers" value="com.chentian610.util.MyMapper"/>
         </plugin>
 
-        <jdbcConnection driverClass="${druid.driver-class}"
-                        connectionURL="${druid.url}"
-                        userId="${druid.keyword}"
-                        brand="${druid.brand}">
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.study.model" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.chentian610.model" targetProject="src/main/java"/>
 
         <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
 
-        <javaClientGenerator targetPackage="com.study.mapper" targetProject="src/main/java"
+        <javaClientGenerator targetPackage="com.chentian610.mapper" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
         <table tableName="%">

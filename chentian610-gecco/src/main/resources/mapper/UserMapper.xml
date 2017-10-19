@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.study.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.study.model.User">
+<mapper namespace="com.chentian610.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.chentian610.model.User">
     <!--
       WARNING - @mbg.generated
     -->

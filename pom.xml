@@ -23,14 +23,13 @@
 		<module>chentian610-getui</module>
 		<module>chentian610-user</module>
 		<module>chentian610-web</module>
-		<module>chentian610-web2</module>
-        <!--<module>chentian610-rocketMQ</module>-->
+		<module>chentian610-netty</module>
+        <module>chentian610-rocketMQ</module>
 		<module>chentian610-oauth2</module>
         <module>chentian610-nettyRabbitMQ</module>
 		<module>chentian610-alipay</module>
         <module>chentian610-nettySocketIO</module>
 		<module>chentian610-thymeleaf</module>
-		<module>chentian610-web3</module>
 		<module>chentian610-tcc-demo</module>
     </modules>
 	<properties>

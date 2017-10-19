@@ -110,7 +110,7 @@ public class DatabaseConfig {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setTypeAliasesPackage("com.chentian610");
-        Resource[] resources = new PathMatchingResourcePatternResolver().getResources("classpath*:com.chentian610/**/mapper/*.xml");
+        Resource[] resources = new PathMatchingResourcePatternResolver().getResources("classpath*:com/chentian610/**/mapper/*.xml");
         logger.info("chentian610MyBatis成功加载Mapper文件数量："+resources.length);
         sessionFactory.setMapperLocations(resources);
         return sessionFactory.getObject();

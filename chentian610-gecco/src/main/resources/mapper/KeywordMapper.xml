@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.study.mapper.KeywordMapper">
-  <resultMap id="BaseResultMap" type="com.study.model.Keyword">
+<mapper namespace="com.chentian610.mapper.KeywordMapper">
+  <resultMap id="BaseResultMap" type="com.chentian610.model.Keyword">
     <!--
       WARNING - @mbg.generated
     -->
@@ -9,4 +9,13 @@
     <result column="keyword" jdbcType="VARCHAR" property="keyword" />
     <result column="brand" jdbcType="VARCHAR" property="brand" />
   </resultMap>
+
+
+  <select id="getAllBrands" resultType="String">
+    SELECT brand from user
+  </select>
+
+  <select id="getKeywordsByBrand" resultType="String" parameterMap="String">
+    SELECT brand from keywords where keyword = #{keyword}
+  </select>
 </mapper>

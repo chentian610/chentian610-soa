@@ -35,12 +35,25 @@ public class UserVO extends BaseVO {
 	*/
 	private String name_cn;
 
+	/**
+	 * 手机号码
+	 */
+	private String phone;
+
 	public void setUser_id(Integer user_id)  {
 		this.user_id = user_id;
 	}
 
 	public Integer getUser_id()  {
 		return user_id;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public void setUser_name(String user_name)  {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.study.mapper.ResourcesMapper">
-  <resultMap id="BaseResultMap" type="com.study.model.Resources">
+<mapper namespace="com.chentian610.mapper.ResourcesMapper">
+  <resultMap id="BaseResultMap" type="com.chentian610.model.Resources">
     <!--
       WARNING - @mbg.generated
     -->
@@ -13,13 +13,13 @@
     <result column="sort" jdbcType="INTEGER" property="sort" />
   </resultMap>
 
-  <select id="queryAll" resultType="com.study.model.Resources">
+  <select id="queryAll" resultType="com.chentian610.model.Resources">
       	SELECT id,name,parentId,resUrl,type,sort
 		FROM resources
 		ORDER BY sort ASC
   </select>
 
-    <select id="loadUserResources" parameterType="java.util.HashMap" resultType="com.study.model.Resources">
+    <select id="loadUserResources" parameterType="java.util.HashMap" resultType="com.chentian610.model.Resources">
         SELECT re.id,re.name,re.parentId,re.resUrl
         FROM resources re LEFT JOIN role_resources rr
         ON re.id = rr.resourcesId
@@ -33,7 +33,7 @@
         ORDER BY re.sort ASC
     </select>
 
-    <select id="queryResourcesListWithSelected" parameterType="int" resultType="com.study.model.Resources">
+    <select id="queryResourcesListWithSelected" parameterType="int" resultType="com.chentian610.model.Resources">
         SELECT re.id,re.name,re.parentId,re.resUrl,re.type,
 		(CASE WHEN EXISTS(SELECT 1
 		FROM role_resources rr WHERE rr.resourcesId=re.id AND rr.roleId=#{rid})

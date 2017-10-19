@@ -145,20 +145,35 @@
 			<artifactId>fastjson</artifactId>
 		</dependency>
 		<!-- getui start -->
+		<!--<dependency>-->
+			<!--<groupId>com.getui</groupId>-->
+			<!--<artifactId>gt-gexin-rp-sdk-base</artifactId>-->
+			<!--<version>${getui-version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>com.getui</groupId>-->
+			<!--<artifactId>gt-gexin-rp-sdk-http</artifactId>-->
+			<!--<version>${getui-version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>com.getui</groupId>-->
+			<!--<artifactId>gt-gexin-rp-sdk-template</artifactId>-->
+			<!--<version>${getui-version}</version>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>com.getui</groupId>
-			<artifactId>gt-gexin-rp-sdk-base</artifactId>
-			<version>${getui-version}</version>
+			<artifactId>gt-gexin-rp-sdk-template</artifactId>
+			<version>4.0.0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.getui</groupId>
 			<artifactId>gt-gexin-rp-sdk-http</artifactId>
-			<version>${getui-version}</version>
+			<version>4.0.0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.getui</groupId>
-			<artifactId>gt-gexin-rp-sdk-template</artifactId>
-			<version>${getui-version}</version>
+			<artifactId>gt-gexin-rp-sdk-base</artifactId>
+			<version>4.0.0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.getui</groupId>

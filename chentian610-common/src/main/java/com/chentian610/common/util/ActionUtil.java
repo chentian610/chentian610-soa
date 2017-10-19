@@ -36,7 +36,8 @@ public class ActionUtil {
 	}
 	
 	public static ActionParam getActionParam(){
-		return ActionParamHolder.get();
+
+		return ActionParamHolder.get()==null?new ActionParam(false):ActionParamHolder.get();
 	}
 	
 	public static int getStart(){

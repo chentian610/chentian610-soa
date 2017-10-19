@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+</head>
+<body>
+<h1>Login</h1>
+<form th:object="${user}" method="post">
+    <label for="phone">手机号码: </label>
+    <input type="text" th:field="*{phone}"/>
+    <br/>
+    <label for="pass_word">密码: </label>
+    <input type="password" th:field="*{pass_word}"/>
+    <br/>
+    <input type="reset"/>
+    <input type="submit"/>
+</form>
+</body>
+</html>
