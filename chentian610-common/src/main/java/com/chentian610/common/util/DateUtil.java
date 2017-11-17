@@ -572,6 +572,7 @@ public class DateUtil {
 	 }
 	 
 	 public static void main(String[]args) throws ParseException {
+		 Long a = Long.parseLong("600");
 		 List<String> list = new ArrayList<String>();
 		 list.addAll(null);
 		 for (int i=0;i<501;i++) {
